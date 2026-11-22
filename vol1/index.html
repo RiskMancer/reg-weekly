@@ -193,6 +193,57 @@ dl.dates .num{font-weight:600}
 .legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.8rem;color:var(--muted);align-items:center}
 footer.foot{border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}
 footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+/* ===== 手機版（≤640px）：表格改卡片、細節預設收合 ===== */
+.fold-btn{display:none}
+@media (max-width:640px){
+  main .in{padding-block:24px 48px;gap:40px}
+  .mast .in{padding-block:16px 18px;gap:12px}
+  .logo{width:140px}
+  .mast h1{font-size:1.7rem}
+  .stat{padding:12px 14px}
+  .stat .v{font-size:1.9rem}
+  .legend{display:none}
+  /* 更新清單 → 卡片 */
+  .tbl:has(.list){border:0;overflow:visible}
+  .list{min-width:0}
+  .list thead{display:none}
+  .list,.list tbody{display:block}
+  .list tr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .list tr[hidden]{display:none}
+  .list td{padding:0;border:0}
+  .list td:nth-child(1){order:1}
+  .list td:nth-child(4){order:2;margin-left:auto;color:var(--muted);font-size:.8rem}
+  .list td.sum{order:3;flex-basis:100%;font-size:.95rem;line-height:1.55}
+  .list td:nth-child(2),.list td:nth-child(3){order:4;font-size:.78rem;color:var(--muted)}
+  .list td:nth-child(6){display:none}
+  /* 單則細節：預設收合 */
+  .card{border-left-width:3px}
+  .card-h{padding:12px 14px;gap:6px}
+  .card-h h3{font-size:1.02rem}
+  .card-h .rv{display:none}
+  .card-b{padding:12px 14px 14px;gap:14px}
+  .two{gap:14px}
+  .card.folded .card-b>*:not(.lead):not(.fold-btn){display:none}
+  .card.folded .lead{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .fold-btn{display:block;font:inherit;font-size:.85rem;color:var(--jade-ui);background:var(--jade-soft);border:0;border-radius:2px;padding:8px 12px;text-align:center;cursor:pointer;width:100%}
+  /* 前後對照 → 上下堆疊 */
+  .tbl:has(.diff),.tbl:has(.track){border:0;overflow:visible}
+  .diff,.track{min-width:0}
+  .diff thead,.track thead{display:none}
+  .diff,.diff tbody,.diff tr,.diff td{display:block}
+  .diff tr{border:1px solid var(--line);margin-bottom:8px}
+  .diff td{border:0;padding:6px 10px}
+  .diff td:first-child{background:var(--surface)}
+  .diff td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-size:.7rem;color:var(--muted)}
+  dl.dates dt{white-space:normal}
+  /* 15 項總覽 → 精簡列 */
+  .track,.track tbody{display:block}
+  .track tr{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .track td{padding:0;border:0}
+  .track td:nth-child(3){grid-column:1/-1;font-size:.85rem;color:var(--muted)}
+  .track td:nth-child(4){display:none}
+}
 </style>
 
 <header class="mast gut">
@@ -644,5 +695,27 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
   }
   btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t)})});
   [].slice.call(document.querySelectorAll('a.stat[data-go]')).forEach(function(a){a.addEventListener('click',function(){apply(a.dataset.go)})});
+})();
+</script>
+<script>
+(function(){
+  /* 對照表加欄名（手機堆疊時顯示） */
+  [].slice.call(document.querySelectorAll('table.diff')).forEach(function(t){
+    var h=[].slice.call(t.querySelectorAll('thead th')).map(function(x){return x.textContent.trim()});
+    [].slice.call(t.querySelectorAll('tbody tr')).forEach(function(r){
+      [].slice.call(r.children).forEach(function(td,i){if(h[i])td.setAttribute('data-label',h[i])});
+    });
+  });
+  /* 手機：細節卡片預設收合 */
+  if(!window.matchMedia('(max-width:640px)').matches)return;
+  [].slice.call(document.querySelectorAll('.card')).forEach(function(c){
+    var b=c.querySelector('.card-b');if(!b)return;
+    var btn=document.createElement('button');btn.type='button';btn.className='fold-btn';
+    function set(f){c.classList.toggle('folded',f);btn.textContent=f?'展開細節 ↓':'收起 ↑';btn.setAttribute('aria-expanded',String(!f))}
+    btn.addEventListener('click',function(){set(!c.classList.contains('folded'))});
+    b.appendChild(btn);set(true);c._set=set;
+  });
+  function openHash(){var c=document.getElementById(location.hash.slice(1));if(c&&c._set)c._set(false)}
+  window.addEventListener('hashchange',openHash);openHash();
 })();
 </script>
