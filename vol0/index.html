@@ -1,0 +1,663 @@
+<meta charset="utf-8"><meta name="robots" content="noindex">
+<title>法規更新周報 Vol.0</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: 品牌刊頭（深玉綠帶＋金黃細線）→ 一、這週發生了什麼（數字、類型分布、更新清單）→ 二、單則細節（前後對照、關鍵日期、原文出處、不確定標註）→ 三、15 項總覽 → 四、未來重要日期（跨期累積，每列標出處）→ 五、查核紀錄 */
+:root{
+  --paper:#ffffff; --surface:#f5f8f7; --ink:#16241f; --muted:#5a6863; --line:#dbe3e0;
+  --jade:#0a4c47; --jade-ui:#157b71; --jade-soft:#e4f0ed;
+  --brass:#a9743a; --brass-soft:#f7eedf; --goose:#fbc400;
+  --hi:#b3372e; --hi-soft:#fbe9e7; --lo:#6b7873; --lo-soft:#eef2f0;
+  --unsure:#6a4c9c; --unsure-soft:#f1ebf9;
+  --ins:#e2f1ec; --ins-ink:#0f5c50; --del:#fbe7e4; --del-ink:#9a2f26;
+  --band:#0a4c47; --band-ink:#ffffff; --band-muted:rgba(255,255,255,.72);
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-num:"Inter","Noto Sans TC",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0d1614; --surface:#14201d; --ink:#e3ece8; --muted:#9caca6; --line:#26342f;
+  --jade:#0a4c47; --jade-ui:#5fbcae; --jade-soft:#16302b;
+  --brass:#d5a46b; --brass-soft:#2f2517; --goose:#fbc400;
+  --hi:#f08b7f; --hi-soft:#3a1f1c; --lo:#9caca6; --lo-soft:#1c2825;
+  --unsure:#bba4ea; --unsure-soft:#29213a;
+  --ins:#143a32; --ins-ink:#8fdcc9; --del:#3d1f1c; --del-ink:#f3a59b;
+  --band:#0a3d39; --band-ink:#ffffff; --band-muted:rgba(255,255,255,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0d1614; --surface:#14201d; --ink:#e3ece8; --muted:#9caca6; --line:#26342f;
+  --jade:#0a4c47; --jade-ui:#5fbcae; --jade-soft:#16302b;
+  --brass:#d5a46b; --brass-soft:#2f2517; --goose:#fbc400;
+  --hi:#f08b7f; --hi-soft:#3a1f1c; --lo:#9caca6; --lo-soft:#1c2825;
+  --unsure:#bba4ea; --unsure-soft:#29213a;
+  --ins:#143a32; --ins-ink:#8fdcc9; --del:#3d1f1c; --del-ink:#f3a59b;
+  --band:#0a3d39; --band-ink:#ffffff; --band-muted:rgba(255,255,255,.7); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.75}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.in{max-width:1100px;margin:0 auto}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.3}
+a{color:var(--jade-ui);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--goose);outline-offset:2px}
+ul,ol{margin:0;padding-left:1.25em}
+li+li{margin-top:4px}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+
+/* masthead */
+.mast{background:var(--band);color:var(--band-ink);border-bottom:4px solid var(--goose)}
+.mast .in{padding-block:22px 26px;display:grid;gap:18px}
+.mast-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.logo{display:block;width:176px;height:auto}
+.mast-tag{font-size:.75rem;letter-spacing:.12em;color:var(--band-muted);border:1px solid rgba(255,255,255,.3);padding:2px 10px;border-radius:2px}
+.mast h1{font-size:clamp(1.8rem,4.6vw,2.6rem);font-weight:900;letter-spacing:.04em}
+.mast-meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.85rem;color:var(--band-muted)}
+.mast-meta b{color:var(--band-ink);font-weight:500;font-family:var(--f-num)}
+
+main .in{padding-block:36px 72px;display:grid;gap:56px}
+section.part{display:grid;gap:20px;min-width:0}
+.part-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px}
+.part-h .no{font-weight:900;color:var(--brass);font-size:1.05rem}
+.part-h h2{font-size:1.35rem;font-weight:900}
+.part-h small{font-size:.82rem;color:var(--muted)}
+.sub{font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--paper);padding:16px 18px;display:grid;gap:2px;align-content:start}
+.stat .k{font-size:.8rem;color:var(--muted)}
+.stat .v{font-family:var(--f-num);font-size:2.3rem;font-weight:700;line-height:1.15;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:.95rem;font-weight:500;margin-left:4px;color:var(--muted)}
+.stat .d{font-size:.78rem;color:var(--muted)}
+a.stat{color:inherit;text-decoration:none;transition:background .15s}
+a.stat:hover{background:var(--jade-soft)}
+a.stat .go{font-size:.74rem;color:var(--jade-ui);margin-top:4px}
+a.stat:hover .go{text-decoration:underline}
+.stat.hi .v{color:var(--hi)} .stat.un .v{color:var(--unsure)}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.note{font-size:.82rem;color:var(--muted);margin:0}
+
+/* type distribution */
+.dist{display:grid;gap:8px}
+.bar{display:flex;height:12px;border-radius:2px;overflow:hidden;background:var(--lo-soft)}
+.bar span{display:block;height:100%}
+.dist-legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.82rem;color:var(--muted)}
+.dist-legend .num{color:var(--ink);font-weight:600;margin-left:2px}
+
+/* doc type tags: 正式 solid, 草案 dashed — must read differently at a glance */
+.t{display:inline-flex;align-items:center;font-size:.74rem;font-weight:700;padding:1px 8px;border-radius:2px;white-space:nowrap;border:1.5px solid transparent;line-height:1.6}
+.t-law{background:var(--jade-ui);color:var(--paper);border-color:var(--jade-ui)}
+.t-draft{background:transparent;color:var(--jade-ui);border:1.5px dashed var(--jade-ui)}
+.t-guide{background:var(--jade-soft);color:var(--jade-ui)}
+.t-faq{background:transparent;color:var(--muted);border-color:var(--line)}
+.t-press{background:var(--lo-soft);color:var(--muted)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.sw-law{background:var(--jade-ui)} .sw-draft{background:repeating-linear-gradient(45deg,var(--jade-ui) 0 2px,transparent 2px 4px);outline:1px solid var(--jade-ui)}
+.sw-guide{background:var(--jade-soft);outline:1px solid var(--jade-ui)} .sw-faq{outline:1px solid var(--line)} .sw-press{background:var(--lo)}
+
+/* impact + review */
+.imp{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:700;white-space:nowrap}
+.imp::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.imp-hi{color:var(--hi)} .imp-mid{color:var(--brass)} .imp-lo{color:var(--lo)}
+.rv{display:inline-flex;align-items:center;gap:5px;font-size:.76rem;white-space:nowrap;padding:1px 8px;border-radius:999px;border:1px solid currentColor}
+.rv-ai{color:var(--jade-ui)}
+.rv-wait{color:var(--unsure);background:var(--unsure-soft);border-style:dashed}
+.rv-ok{color:var(--paper);background:var(--jade-ui);border-color:var(--jade-ui)}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.filters .lab{font-size:.8rem;color:var(--muted);margin-right:4px}
+.filters button{font:inherit;font-size:.82rem;padding:3px 12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:2px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--jade);border-color:var(--jade);color:#fff}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.74rem;color:var(--muted);font-weight:500;letter-spacing:.06em;background:var(--surface);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+.list{min-width:900px}
+.list td.sum a{color:var(--ink);font-weight:500;text-decoration:none}
+.list td.sum a:hover{color:var(--jade-ui);text-decoration:underline}
+.nowrap{white-space:nowrap}
+
+/* update cards */
+.cards{display:grid;gap:18px}
+.card{border:1px solid var(--line);border-left:4px solid var(--lo);background:var(--paper);min-width:0;scroll-margin-top:16px}
+.card[data-imp="hi"]{border-left-color:var(--hi)} .card[data-imp="mid"]{border-left-color:var(--brass)}
+.card-h{padding:16px 20px 14px;display:grid;gap:8px;border-bottom:1px solid var(--line);background:var(--surface)}
+.card-h .row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.card-h h3{font-size:1.12rem;font-weight:900}
+.card-h .meta{font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px}
+.card-h .uid{font-family:var(--f-num);font-size:.75rem;color:var(--muted);margin-left:auto}
+.card-b{padding:16px 20px 18px;display:grid;gap:18px}
+.lead{margin:0;font-weight:500;max-width:72ch}
+.blk{display:grid;gap:8px;min-width:0}
+.two{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:18px 28px}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+
+/* diff */
+.diff{min-width:620px;font-size:.86rem}
+.diff th:first-child{width:150px}
+.diff td{line-height:1.7}
+.diff .loc{font-size:.76rem;color:var(--muted);display:block;margin-top:2px}
+.op{display:inline-block;font-size:.7rem;font-weight:700;padding:0 6px;border-radius:2px;margin-bottom:4px}
+.op-add{background:var(--ins);color:var(--ins-ink)} .op-mod{background:var(--brass-soft);color:var(--brass)} .op-del{background:var(--del);color:var(--del-ink)}
+ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;padding:0 2px;border-radius:2px}
+del{background:var(--del);color:var(--del-ink);text-decoration:line-through;text-decoration-thickness:1px;padding:0 2px;border-radius:2px}
+.empty-side{color:var(--muted);font-style:normal}
+.nodiff{border:1px dashed var(--line);padding:10px 14px;font-size:.86rem;color:var(--muted);background:var(--surface)}
+.nodiff b{color:var(--ink);font-weight:700}
+
+/* key dates */
+dl.dates{margin:0;display:grid;grid-template-columns:auto 1fr;border:1px solid var(--line)}
+dl.dates dt,dl.dates dd{margin:0;padding:8px 12px;border-bottom:1px solid var(--line);font-size:.86rem}
+dl.dates dt{color:var(--muted);background:var(--surface);white-space:nowrap}
+dl.dates dt:last-of-type,dl.dates dd:last-of-type{border-bottom:0}
+dl.dates .num{font-weight:600}
+.soon{color:var(--hi);font-weight:700}
+
+/* sources */
+.srcs{display:grid;gap:6px;font-size:.84rem;margin:0;padding:0;list-style:none}
+.srcs li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;align-items:baseline}
+.srcs li+li{margin-top:0}
+.src{font-size:.68rem;font-weight:700;padding:0 5px;border-radius:2px;white-space:nowrap}
+.s-off{background:var(--jade-soft);color:var(--jade-ui)} .s-sec{background:var(--lo-soft);color:var(--lo)} .s-unv{background:var(--unsure-soft);color:var(--unsure)}
+.pin{display:block;color:var(--muted);font-size:.8rem}
+.pin b{color:var(--ink);font-weight:500}
+
+/* AI uncertainty marking */
+.uns{background:var(--unsure-soft);color:inherit;border-bottom:1.5px dashed var(--unsure);padding:0 2px;cursor:help}
+.uns::after{content:"待確認";font-size:.62rem;font-weight:700;color:var(--unsure);margin-left:3px;vertical-align:super;letter-spacing:.04em}
+.ask{border:1px dashed var(--unsure);background:var(--unsure-soft);padding:10px 14px;font-size:.86rem;display:grid;gap:4px}
+.ask .sub{color:var(--unsure)}
+
+/* tracker + timeline */
+.track{min-width:720px}
+.st{font-size:.74rem;padding:0 7px;border:1px solid currentColor;border-radius:2px;white-space:nowrap}
+.st-new{color:var(--jade-ui)} .st-rec{color:var(--brass)} .st-none{color:var(--lo)}
+.tl{border:1px solid var(--line)}
+.tl>div{display:grid;grid-template-columns:150px 110px minmax(0,1fr);gap:12px;padding:9px 14px;border-bottom:1px solid var(--line);align-items:baseline;font-size:.88rem}
+.tl>div:last-child{border-bottom:0}
+.tl .d{font-family:var(--f-num);font-weight:600;font-variant-numeric:tabular-nums}
+.tl .w{font-size:.8rem;color:var(--muted)}
+.tl .is-soon .d{color:var(--hi)}
+.tl a{font-size:.78rem;margin-left:6px;white-space:nowrap}
+.tl .org{font-size:.7rem;color:var(--muted);border:1px solid var(--line);border-radius:2px;padding:0 6px;margin-left:8px;white-space:nowrap}
+.tl .org a{margin-left:0;font-size:inherit}
+@media (max-width:640px){.tl>div{grid-template-columns:1fr;gap:2px}}
+
+.log{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.log section{border:1px solid var(--line);padding:14px 18px;min-width:0}
+.log h3{font-size:.95rem;font-weight:700;margin-bottom:8px}
+.log ul{font-size:.88rem}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.8rem;color:var(--muted);align-items:center}
+footer.foot{border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}
+footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+</style>
+
+<header class="mast gut">
+  <div class="in">
+    <div class="mast-top">
+      <svg class="logo" role="img" aria-label="RISKMANCER 思維風險管理顧問" width="192" height="37" viewBox="0 0 192 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_4628_1011)">
+<path d="M18.54 -0.000424786C8.54778 -0.137486 0.226322 7.97523 0.0069966 18.0851C-0.128469 24.3051 2.76792 29.8398 7.30279 33.2924C8.45747 34.1735 9.1477 35.5376 9.1477 36.9996H11.8893V35.8313V32.829V17.6805C13.5858 17.9481 15.1727 18.6986 16.4628 19.8539C15.1017 21.8119 14.3535 24.1485 14.3276 26.5633C14.3083 28.7302 15.9661 30.5773 18.1078 30.6817C20.372 30.7861 22.2556 28.9521 22.2556 26.6743C22.2556 24.2202 21.5009 21.8445 20.1204 19.8539C21.4106 18.6986 22.9975 17.9481 24.694 17.6805V32.8355V35.8378V37.0061H27.4356C27.4356 35.5506 28.1193 34.18 29.2676 33.3054C33.7057 29.9311 36.5763 24.5596 36.5763 18.5094C36.5698 8.36684 28.5193 0.136636 18.54 -0.000424786ZM18.2884 27.9078C17.6175 27.9078 17.0692 27.3531 17.0692 26.6743C17.0692 25.0557 17.495 23.4827 18.2884 22.0991C19.0818 23.4762 19.5076 25.0557 19.5076 26.6743C19.5076 27.3531 18.9593 27.9078 18.2884 27.9078ZM27.4291 31.2169V14.8022H26.0616C23.2168 14.8022 20.4817 15.853 18.3594 17.7262L18.2949 17.6478L18.2239 17.7262C16.1016 15.853 13.3665 14.8022 10.5217 14.8022H9.15415V31.2169C5.27725 28.3582 2.75501 23.7242 2.75501 18.5028C2.75501 9.81577 9.71537 2.77996 18.3013 2.77996C26.8873 2.77996 33.8412 9.8223 33.8412 18.5028C33.8283 23.7307 31.306 28.3582 27.4291 31.2169Z" fill="#fbc400"/>
+<path d="M5.6123 13.1905C4.94142 14.8287 4.57373 16.6235 4.57373 18.5032H6.12836C6.43155 16.9238 6.96696 15.4357 7.69589 14.0651L5.6123 13.1905Z" fill="#fbc400"/>
+<path d="M18.2877 6.20038V4.62744C13.5335 4.62744 9.347 7.07496 6.88281 10.7952L8.90835 12.1658C11.1468 9.12435 14.4689 6.95096 18.2877 6.20038Z" fill="#fbc400"/>
+<path d="M45.7163 28.5087V8.4978H50.2705C53.6056 8.4978 55.2699 10.4558 55.2699 14.3719C55.2699 15.5532 55.0892 16.5518 54.728 17.3807C54.3668 18.203 53.7346 18.8688 52.825 19.3779L55.8827 28.5153H52.8831L50.2447 19.9718H48.5482V28.5153H45.7163V28.5087ZM48.5482 11.1933V17.4329H50.1609C50.6576 17.4329 51.0575 17.3611 51.3543 17.224C51.651 17.0804 51.8832 16.8846 52.0509 16.617C52.1993 16.356 52.3025 16.0296 52.3541 15.6446C52.4122 15.2595 52.438 14.8157 52.438 14.3066C52.438 13.7975 52.4122 13.3537 52.3541 12.9686C52.2961 12.5835 52.1864 12.2507 52.0187 11.97C51.6639 11.4479 50.9995 11.1803 50.019 11.1803H48.5482V11.1933Z" fill="#fbc400"/>
+<path d="M64.4173 8.4978H61.5854V28.5087H64.4173V8.4978Z" fill="#fbc400"/>
+<path d="M79.8475 14.2544H77.0157V13.6082C77.0157 12.9556 76.8608 12.3878 76.5576 11.9113C76.2545 11.4348 75.7384 11.1934 75.0159 11.1934C74.6289 11.1934 74.3128 11.2652 74.0741 11.4153C73.8354 11.5654 73.6355 11.7547 73.4935 11.9766C73.3452 12.2181 73.242 12.4987 73.1904 12.8055C73.1323 13.1122 73.1065 13.4386 73.1065 13.7779C73.1065 14.1695 73.1194 14.5024 73.1517 14.7635C73.1775 15.0245 73.2484 15.2595 73.3581 15.4684C73.4677 15.6772 73.629 15.8534 73.8419 16.0036C74.0548 16.1537 74.345 16.3038 74.7192 16.4539L76.8866 17.322C77.5124 17.5634 78.0284 17.8506 78.4155 18.177C78.8025 18.5033 79.1121 18.8818 79.3315 19.3126C79.5379 19.7629 79.6734 20.272 79.7508 20.8464C79.8217 21.4207 79.8604 22.0669 79.8604 22.7979C79.8604 23.6398 79.7766 24.423 79.6089 25.1475C79.4411 25.8654 79.1767 26.4789 78.8025 26.988C78.4155 27.5102 77.9059 27.9279 77.2737 28.2281C76.6415 28.5283 75.8739 28.6785 74.9708 28.6785C74.287 28.6785 73.6484 28.5544 73.0549 28.313C72.4614 28.0715 71.9518 27.7321 71.5261 27.3013C71.1003 26.8706 70.7649 26.368 70.5133 25.8002C70.2617 25.2258 70.1392 24.6058 70.1392 23.9335V22.8631H72.971V23.7638C72.971 24.286 73.1259 24.7624 73.429 25.1867C73.7322 25.6109 74.2483 25.8197 74.9708 25.8197C75.4546 25.8197 75.8287 25.748 76.0932 25.6109C76.3641 25.4673 76.5706 25.2715 76.7189 25.0039C76.8673 24.7428 76.9576 24.4296 76.9834 24.0641C77.0092 23.6986 77.0286 23.2939 77.0286 22.8436C77.0286 22.3214 77.0092 21.8907 76.9705 21.5513C76.9318 21.2119 76.8608 20.9443 76.7447 20.7354C76.6157 20.5266 76.4415 20.3634 76.2287 20.2263C76.0158 20.0958 75.732 19.9588 75.3836 19.8021L73.3581 18.9602C72.1324 18.4576 71.3132 17.7854 70.9003 16.9499C70.481 16.1145 70.2746 15.0702 70.2746 13.8171C70.2746 13.0665 70.3778 12.3551 70.5778 11.6829C70.7842 11.0106 71.0874 10.4297 71.4938 9.94023C71.8809 9.45072 72.3776 9.06565 72.9775 8.77195C73.5774 8.48477 74.2999 8.33466 75.132 8.33466C75.8352 8.33466 76.4802 8.46519 77.0608 8.72626C77.6414 8.98733 78.151 9.33324 78.5767 9.76401C79.4282 10.6647 79.854 11.6959 79.854 12.8577V14.2544H79.8475Z" fill="#fbc400"/>
+<path d="M85.5498 28.5087V8.49127H88.3817V17.6287H88.4397L92.5747 8.49127H95.413L91.549 16.5061L96.1355 28.5087H93.1359L89.9105 19.6259L88.3817 22.5237V28.5087H85.5498Z" fill="#fbc400"/>
+<path d="M101.838 28.5087V8.49127H104.56L108.198 19.0907H108.256L111.862 8.49127H114.617V28.5087H111.785V16.3364H111.727L108.921 24.9386H107.502L104.728 16.3364H104.67V28.5087H101.838Z" fill="#fbc400"/>
+<path d="M120.319 28.5087L124.738 8.4978H127.099L131.518 28.5087H128.686L127.854 24.2076H123.99L123.158 28.5087H120.319ZM127.318 21.5056L125.931 14.2544H125.873L124.487 21.5056H127.318Z" fill="#fbc400"/>
+<path d="M137.22 28.5087V8.49127H139.942L144.219 20.5527H144.277V8.49127H147.109V28.5087H144.439L140.11 16.48H140.052V28.5087H137.22Z" fill="#fbc400"/>
+<path d="M161.978 22.8044V24.0445C161.978 24.6645 161.862 25.2519 161.63 25.8002C161.398 26.3549 161.082 26.8444 160.669 27.2752C160.262 27.706 159.785 28.0454 159.237 28.2999C158.688 28.5544 158.101 28.6784 157.469 28.6784C156.934 28.6784 156.385 28.6067 155.831 28.4565C155.276 28.3064 154.773 28.0454 154.328 27.6668C153.883 27.2948 153.515 26.8118 153.231 26.2179C152.941 25.6305 152.799 24.8734 152.799 23.9531V12.936C152.799 12.2833 152.908 11.6698 153.134 11.1085C153.354 10.5472 153.67 10.0577 154.076 9.64652C154.482 9.23534 154.973 8.909 155.534 8.67404C156.102 8.43908 156.727 8.32159 157.411 8.32159C158.746 8.32159 159.83 8.76541 160.662 9.63999C161.069 10.0708 161.391 10.5798 161.623 11.1738C161.856 11.7612 161.972 12.4073 161.972 13.0992V14.2218H159.14V13.2689C159.14 12.7076 158.985 12.218 158.669 11.8069C158.353 11.3957 157.927 11.1868 157.392 11.1868C156.689 11.1868 156.218 11.4087 155.992 11.846C155.76 12.2898 155.644 12.8446 155.644 13.5169V23.7573C155.644 24.3382 155.766 24.8277 156.018 25.2193C156.269 25.6109 156.714 25.8067 157.366 25.8067C157.553 25.8067 157.753 25.7741 157.966 25.7088C158.179 25.6435 158.379 25.5391 158.566 25.389C158.734 25.2389 158.869 25.0365 158.985 24.7689C159.095 24.5079 159.153 24.1815 159.153 23.7834V22.7979H161.978V22.8044Z" fill="#fbc400"/>
+<path d="M167.681 28.5087V8.49127H176.125V11.1933H170.519V17.0674H175.409V19.7629H170.519V25.6435H176.125V28.5087H167.681Z" fill="#fbc400"/>
+<path d="M181.833 28.5087V8.4978H186.388C189.723 8.4978 191.387 10.4558 191.387 14.3719C191.387 15.5532 191.206 16.5518 190.845 17.3807C190.484 18.203 189.852 18.8688 188.942 19.3779L192 28.5153H189L186.362 19.9718H184.665V28.5153H181.833V28.5087ZM184.665 11.1933V17.4329H186.278C186.775 17.4329 187.175 17.3611 187.471 17.224C187.768 17.0804 188 16.8846 188.168 16.617C188.317 16.356 188.42 16.0296 188.471 15.6446C188.529 15.2595 188.555 14.8157 188.555 14.3066C188.555 13.7975 188.529 13.3537 188.471 12.9686C188.413 12.5835 188.304 12.2507 188.136 11.97C187.781 11.4479 187.117 11.1803 186.136 11.1803H184.665V11.1933Z" fill="#fbc400"/>
+</g>
+<defs>
+<clipPath id="clip0_4628_1011">
+<rect width="192" height="37" fill="#fbc400"/>
+</clipPath>
+</defs>
+</svg>
+      <span class="mast-tag">內部使用 · 顧問與 BD</span>
+    </div>
+    <h1>法規更新周報</h1>
+    <div class="mast-meta">
+      <span>期號 <b>Vol.0</b></span>
+      <span>發布 <b>2026-11-17</b></span>
+      <span>涵蓋期間 <b>2026-11-10 – 11-17</b></span>
+      <span>追蹤 <b>15</b> 項法規／標準</span>
+    </div>
+  </div>
+</header>
+
+<main class="gut">
+<div class="in">
+
+<!-- ============ 一、這週發生了什麼 ============ -->
+<section class="part" id="week">
+  <div class="part-h"><span class="no">一</span><h2>這週發生了什麼</h2><small>只算發布、生效或公告日期落在 11/10–11/17 的文件</small></div>
+
+  <div class="stats">
+    <a class="stat" href="#list" data-go="all"><span class="k">本週新增</span><span class="v">6<small>則</small></span><span class="d">上週：—</span><span class="go">看更新清單 ↓</span></a>
+    <a class="stat" href="#list" data-go="law"><span class="k">正式法規</span><span class="v">2<small>則</small></span><span class="d">上週：—</span><span class="go">只看正式法規 ↓</span></a>
+    <a class="stat" href="#u3" data-go="all"><span class="k">意見徵詢中</span><span class="v">1<small>則</small></span><span class="d">11/24 截止</span><span class="go">看草案細節 ↓</span></a>
+    <a class="stat" href="#tracker" data-go="all"><span class="k">有動態的追蹤項目</span><span class="v">5<small>/ 15</small></span><span class="d">上週：10（首期涵蓋 11 週）</span><span class="go">看 15 項總覽 ↓</span></a>
+  </div>
+  <p class="note">本期只收錄讀過官方原文、內容可確定的資訊；只有媒體或次級來源、尚待確認的消息不列入。上一版是最早的試行版，沒有逐則統計，所以本週新增和正式法規兩格沒有比較值。</p>
+
+  <div class="dist">
+    <span class="sub">文件類型</span>
+    <div class="bar" role="img" aria-label="正式法規 2 則、草案 1 則、指引 0 則、常見問答 0 則、新聞稿 3 則">
+      <span class="sw-law" style="width:33.33%"></span><span class="sw-draft" style="width:16.67%"></span><span class="sw-press" style="width:50%"></span>
+    </div>
+    <div class="dist-legend">
+      <span><span class="t t-law">正式法規</span> <span class="num">2</span></span>
+      <span><span class="t t-draft">草案</span> <span class="num">1</span></span>
+      <span><span class="t t-guide">指引</span> <span class="num">0</span></span>
+      <span><span class="t t-faq">常見問答</span> <span class="num">0</span></span>
+      <span><span class="t t-press">新聞稿</span> <span class="num">3</span></span>
+    </div>
+    <p class="note">「正式法規」包含已發布的法律、標準與認證規範。草案和新聞稿都還不是正式要求，對客戶說明時請跟正式法規分開講。</p>
+  </div>
+
+  <div class="blk" id="list" style="scroll-margin-top:16px">
+    <div class="filters" role="group" aria-label="依文件類型篩選">
+      <span class="lab">篩選</span>
+      <button type="button" id="f-all" data-t="all" aria-pressed="true">全部</button>
+      <button type="button" id="f-law" data-t="law" aria-pressed="false">正式法規</button>
+      <button type="button" id="f-draft" data-t="draft" aria-pressed="false">草案</button>
+      <button type="button" id="f-guide" data-t="guide" aria-pressed="false">指引</button>
+      <button type="button" id="f-faq" data-t="faq" aria-pressed="false">常見問答</button>
+      <button type="button" id="f-press" data-t="press" aria-pressed="false">新聞稿</button>
+    </div>
+    <div class="tbl"><table class="list">
+      <thead><tr><th>類型</th><th>法規別</th><th>發布機構</th><th>日期</th><th>一句話摘要</th><th>審核狀態</th></tr></thead>
+      <tbody>
+        <tr data-t="press"><td><span class="t t-press">新聞稿</span></td><td class="nowrap">ISMS／PIMS</td><td>數發部資安署</td><td class="num nowrap">11-11</td><td class="sum"><a href="#u1">AI 網攻因應：重大警訊 72 小時內修補，個資外洩 72 小時內通報並通知當事人</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
+        <tr data-t="press"><td><span class="t t-press">新聞稿</span></td><td class="nowrap">ISMS（金融）</td><td>金管會</td><td class="num nowrap">11-13</td><td class="sum"><a href="#u2">資安長會議要求金融業優先落實六項措施，含 SBOM、零信任、董事會督導</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
+        <tr data-t="draft"><td><span class="t t-draft">草案</span></td><td class="nowrap">ISO 42001</td><td>TAF</td><td class="num nowrap">11-11</td><td class="sum"><a href="#u3">AI 管理系統驗證機構認證規範草案 TAF-MS-AC01，11/24 前可提意見</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
+        <tr data-t="law"><td><span class="t t-law">正式法規</span></td><td class="nowrap">ISO 27001 等</td><td>TAF</td><td class="num nowrap">11-12</td><td class="sum"><a href="#u4">19 份文件改引 Global ACI 文件編號，含 ISMS 認證規範 TAF-MS-IC01，實質內容未變</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
+        <tr data-t="law"><td><span class="t t-law">正式法規</span></td><td class="nowrap">管理系統驗證</td><td>TAF</td><td class="num nowrap">11-12</td><td class="sum"><a href="#u5">「驗證依據/方案審查辦法」TAF-AA-C13 改版為第七版</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
+        <tr data-t="press"><td><span class="t t-press">新聞稿</span></td><td class="nowrap">ISO 13485</td><td>歐盟執委會</td><td class="num nowrap">11-13</td><td class="sum"><a href="#u6">醫材「協同評估試辦」說明會錄影上線</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
+      </tbody>
+    </table></div>
+    <div class="legend">
+      <span>審核狀態：</span>
+      <span><span class="rv rv-ai">AI 已核對原文</span> AI 讀過官方原文，尚未經專家看過</span>
+      <span><span class="rv rv-ok">專家已確認</span> 專家簽核後改成這個狀態（本期還沒有）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 二、單則更新的細節 ============ -->
+<section class="part" id="detail">
+  <div class="part-h"><span class="no">二</span><h2>單則更新的細節</h2></div>
+  <div class="legend">
+    <span>標註方式：</span>
+    <span><ins>新增文字</ins></span>
+    <span><del>刪除文字</del></span>
+  </div>
+
+  <div class="cards">
+
+  <!-- U1 -->
+  <article class="card" id="u1" data-t="press">
+    <div class="card-h">
+      <div class="row"><span class="t t-press">新聞稿</span><span class="rv rv-ai">AI 已核對原文</span><span class="uid">#U1</span></div>
+      <h3>資安署因應 AI 網攻：補漏洞、快通知、個資最小化</h3>
+      <div class="meta"><span>ISMS（資安法）、PIMS（個資法）</span><span>數位發展部資通安全署</span><span class="num">2026-11-11</span></div>
+    </div>
+    <div class="card-b">
+      <p class="lead">數發部提出五項應變行動：重大資安警訊發布後 72 小時內修補；數位經濟相關企業個資外洩時，72 小時內通報主管機關、72 小時內通知當事人；一個月內提出檢討改善計畫。新聞稿用「應該」，沒有寫這些 72 小時要求的法律依據。</p>
+
+      <div class="two">
+        <div class="blk">
+          <span class="sub">跟前一版差在哪</span>
+          <div class="nodiff"><b>新聞稿是第一次發布，沒有前一版。</b>下表把新的要求和新聞稿自己引用的現行規定並列，看出多了哪些要求。</div>
+          <div class="tbl"><table class="diff">
+            <thead><tr><th>項目</th><th>現行規定（新聞稿引述）</th><th>本次新聞稿要求</th></tr></thead>
+            <tbody>
+              <tr><td><span class="op op-mod">修改</span><br>通知當事人<span class="loc">個資法第 12 條</span></td>
+                <td>個資遭竊或洩漏時應查明後以適當方式通知當事人<span class="loc">「應急因應三件事」第二點</span></td>
+                <td>應該<ins>在 72 小時內</ins>以適當方式<ins>個別</ins>通知當事人<ins>，通知潛在詐騙風險</ins>；<ins>初步掌握受影響範圍後即可先行通知，無須等待調查全面告結</ins><span class="loc">「五項應變行動」第三點；「三件事」第二點</span></td></tr>
+              <tr><td><span class="op op-mod">修改</span><br>通報主管機關<span class="loc">個資法第 12、27 條</span></td>
+                <td>依各目的事業主管機關所訂之個人資料檔案安全維護辦法，<del>於法定期限內</del>向目的事業主管機關完成通報<span class="loc">「企業不必單打獨鬥」第二點</span></td>
+                <td>數位經濟相關企業發現個資外洩，應於 <ins>72 小時內</ins>通報主管機關<span class="loc">「五項應變行動」第二點</span></td></tr>
+              <tr><td><span class="op op-add">新增</span><br>弱點修補時限</td>
+                <td><span class="empty-side">新聞稿引用「各機關基於風險導向之弱點處置期限評估指引」，本期未讀取指引原文</span></td>
+                <td>重大資安警訊發布後，<ins>72 小時之內</ins>完成升級、修補、關閉部分功能或其他防護措施<span class="loc">「五項應變行動」第一點</span></td></tr>
+              <tr><td><span class="op op-add">新增</span><br>止血與檢討</td>
+                <td><span class="empty-side">—</span></td>
+                <td><ins>72 小時內找到原因或完成修補、防止災情擴大；一個月內提出檢討與改善計畫，落實個資最小化</ins><span class="loc">「五項應變行動」第四、五點</span></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="blk">
+          <span class="sub">關鍵日期</span>
+          <dl class="dates">
+            <dt>生效日</dt><dd>無。屬行政呼籲，新聞稿沒有寫生效日</dd>
+            <dt>過渡期</dt><dd>無</dd>
+            <dt>意見徵詢截止</dt><dd>不適用</dd>
+          </dl>
+          <span class="sub">對客戶的影響</span>
+          <ul>
+            <li>所有客戶：檢查對外系統的 PHP、Node.js、GitLab 版本與 API 權限，把「警訊發布後 72 小時內處置」寫進弱點管理流程。</li>
+            <li>電商、平台業者：事件應變計畫加入 72 小時通報、通知當事人的流程與範本。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="blk">
+        <span class="sub">原文出處</span>
+        <ul class="srcs">
+          <li><span class="src s-off">官方</span><span><a href="https://moda.gov.tw/ACS/press/news/press/21422">資安署新聞稿：因應國際 AI 網攻威脅，籲企業「補漏洞、快通知、個資最小化」</a><span class="pin"><b>「數發部提出五項應變行動」第一～五點</b>（72 小時要求）；<b>「企業及網路平台應急因應三件事」第二點</b>（引個資法第 12 條）；<b>「企業不必單打獨鬥」第二點</b>（引個資法第 12、27 條）</span></span></li>
+          <li><span class="src s-off">官方</span><span><a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0050021">全國法規資料庫：個人資料保護法</a><span class="pin"><b>第 12 條</b>（通知當事人）、<b>第 27 條</b>（非公務機關安全措施）</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- U2 -->
+  <article class="card" id="u2" data-t="press">
+    <div class="card-h">
+      <div class="row"><span class="t t-press">新聞稿</span><span class="rv rv-ai">AI 已核對原文</span><span class="uid">#U2</span></div>
+      <h3>金管會資安長會議：金融業優先落實六項措施</h3>
+      <div class="meta"><span>ISMS（金融業）、SSDLC</span><span>金融監督管理委員會</span><span class="num">2026-11-13</span><span>會議日 11-12</span></div>
+    </div>
+    <div class="card-b">
+      <p class="lead">金管會要求金融機構由董事會和高階主管督導，優先落實六項措施：掌握外部曝險並用 SBOM 管理軟體元件、零信任與高權限控管、資安左移並評估防禦性 AI、F-ISAC 情資與委外供應鏈聯防、AI 攻擊與雲端中斷情境演練、董事會資安治理責任。</p>
+      <div class="two">
+        <div class="blk">
+          <span class="sub">跟前一版差在哪</span>
+          <div class="nodiff"><b>新聞稿是第一次發布，沒有前一版。</b>新聞稿第 3 段提到兩份先前的文件：114 年 12 月「金融資安韌性發展藍圖」、115 年 7 月「金融業應對 AI 攻擊的挑戰與策略建議」。本期沒有讀這兩份原文，所以還不能逐段比對六項措施和先前文件的差異。</div>
+          <span class="sub">六項措施</span>
+          <ol>
+            <li>掌握外部曝險、處置重大漏洞；用 SBOM 掌握重要軟體元件及版本</li>
+            <li>零信任、高權限帳號與委外遠端連線控管、網路微分段</li>
+            <li>資安左移（安全設計、程式碼與元件檢測），審慎評估防禦性 AI</li>
+            <li>善用 F-ISAC 情資，強化共同供應商、雲端與重要軟體的風險管理</li>
+            <li>針對 AI 攻擊、系統入侵、雲端或供應商中斷辦理演練；強化數位憑證緊急換發</li>
+            <li>董事會及高階管理階層負起資安治理責任，配置人力、預算、技術資源</li>
+          </ol>
+        </div>
+        <div class="blk">
+          <span class="sub">關鍵日期</span>
+          <dl class="dates">
+            <dt>生效日</dt><dd>無。屬監理呼籲</dd>
+            <dt>過渡期</dt><dd>無</dd>
+            <dt>後續追蹤</dt><dd>金管會表示會透過成熟度評估、金融檢查、情境演練追蹤改善成效</dd>
+          </dl>
+          <span class="sub">對客戶的影響</span>
+          <ul>
+            <li>金融業：六項措施可直接當年度資安計畫與內稽的檢核清單；金檢可能依此追蹤。</li>
+            <li>供應金融業的軟體商：預期客戶會要求 SBOM 與安全開發證明。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk">
+        <span class="sub">原文出處</span>
+        <ul class="srcs">
+          <li><span class="src s-off">官方</span><span><a href="https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0,2&amp;mcustomize=news_view.jsp&amp;dataserno=202611130001&amp;dtable=News">金管會新聞稿：資安長會議聚焦 AI 攻擊與代理 AI 安全</a><span class="pin"><b>第 4 段及「一」～「六」點</b>（六項措施）；<b>第 3 段</b>（先前文件與四項議題）；<b>第「三」點</b>（10 月代理 AI 安全諮詢文件）；<b>末段</b>（金融檢查追蹤）</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- U3 -->
+  <article class="card" id="u3" data-t="draft">
+    <div class="card-h">
+      <div class="row"><span class="t t-draft">草案</span><span class="rv rv-ai">AI 已核對原文</span><span class="uid">#U3</span></div>
+      <h3>TAF 公開徵詢 AI 管理系統驗證機構認證規範草案</h3>
+      <div class="meta"><span>ISO/IEC 42001</span><span>財團法人全國認證基金會（TAF）</span><span class="num">2026-11-11</span></div>
+    </div>
+    <div class="card-b">
+      <p class="lead">TAF 參照 ISO/IEC 42006:2025 訂定「人工智慧管理系統驗證機構認證規範」（TAF-MS-AC01）第 1 版草案，目的是配合預計辦理的 AI 管理系統驗證方案。意見徵詢到 11/24。</p>
+      <div class="two">
+        <div class="blk">
+          <span class="sub">跟前一版差在哪</span>
+          <div class="nodiff"><b>第 1 版草案，沒有前一版。</b>草案全文放在 TAF 文件討論區，本期沒有讀取全文；要比對的話，可以和 ISO/IEC 42006:2025 原文逐條對照。</div>
+        </div>
+        <div class="blk">
+          <span class="sub">關鍵日期</span>
+          <dl class="dates">
+            <dt>意見徵詢截止</dt><dd><span class="soon num">2026-11-24</span>（剩 7 天）</dd>
+            <dt>生效日</dt><dd>未定，定稿後公告</dd>
+            <dt>過渡期</dt><dd>未定</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="blk">
+        <span class="sub">對客戶的影響</span>
+        <ul>
+          <li>已取得或規劃 42001 驗證的科技業、金融業：確認驗證機構是否會申請 TAF 認證，未來證書是否帶 TAF 標誌。</li>
+          <li>公司本身：若要對草案提意見，需在 11/24 前到 TAF 文件討論區提交。</li>
+        </ul>
+      </div>
+      <div class="blk">
+        <span class="sub">原文出處</span>
+        <ul class="srcs">
+          <li><span class="src s-off">官方</span><span><a href="https://www.taftw.org.tw/news/accredited/verification-agency/TSTafNews-000912/">TAF 公告：TAF-MS-AC01 第 1 版（草案）公開徵詢意見</a><span class="pin"><b>第一點</b>（目的與草案位置）；<b>第二點</b>（截止 2026-11-24）；<b>第三點</b>（提交方式）</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- U4 -->
+  <article class="card" id="u4" data-t="law">
+    <div class="card-h">
+      <div class="row"><span class="t t-law">正式法規</span><span class="rv rv-ai">AI 已核對原文</span><span class="uid">#U4</span></div>
+      <h3>TAF 修訂 19 份文件的引用說明，改引 Global ACI 文件</h3>
+      <div class="meta"><span>ISO 27001、ISO 9001 等管理系統驗證</span><span>TAF</span><span class="num">公告 2026-11-12</span><span class="num">實施 2026-11-10</span></div>
+    </div>
+    <div class="card-b">
+      <p class="lead">配合 Global ACI 於 2026 年 1 月正式運作，TAF 修訂 19 份文件中的引用說明，公告寫明「文件實質內容未變更」。其中包含資訊安全管理系統驗證機構認證規範 TAF-MS-IC01（ISO/IEC 27006-1:2024）。</p>
+      <div class="blk">
+        <span class="sub">跟前一版差在哪（節錄 5 份，其餘 14 份見公告）</span>
+        <div class="tbl"><table class="diff">
+          <thead><tr><th>文件</th><th>本版</th><th>變更</th></tr></thead>
+          <tbody>
+            <tr><td><span class="op op-mod">修改</span><br>TAF-MS-IC01<span class="loc">ISMS 驗證機構認證規範</span></td><td><ins>第 4 版</ins></td><td>只改引用說明，實質內容未變</td></tr>
+            <tr><td><span class="op op-mod">修改</span><br>TAF-MS-IF06<span class="loc">品質手冊與 ISMS 認證規範自評表</span></td><td><ins>第 4 版</ins></td><td>只改引用說明</td></tr>
+            <tr><td><span class="op op-mod">修改</span><br>TAF-MS-C07<span class="loc">多場區稽核與驗證</span></td><td><ins>第 4 版</ins></td><td>改引 <ins>Global ACI-TECH-3-001 (M)</ins></td></tr>
+            <tr><td><span class="op op-mod">修改</span><br>TAF-MS-C08<span class="loc">已認證驗證的移轉</span></td><td><ins>第 3 版</ins></td><td>改引 <ins>Global ACI-TECH-3-002 (M)</ins></td></tr>
+            <tr><td><span class="op op-mod">修改</span><br>TAF-MS-C15<span class="loc">整合性管理系統稽核</span></td><td><ins>第 3 版</ins></td><td>改引 <ins>Global ACI-TECH-3-008 (M)</ins></td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">公告只列出本版版次與新的引用文件。條文層級的前後對照要從 TAF 文件專區下載新舊兩版全文。</p>
+      </div>
+      <div class="two">
+        <div class="blk">
+          <span class="sub">對客戶的影響</span>
+          <ul>
+            <li>持證客戶不需要做任何事。</li>
+            <li>公司內部：顧問文件和教材裡引用 IAF MD 編號的地方，下次改版時可以改成 Global ACI 文件編號。</li>
+          </ul>
+        </div>
+        <div class="blk">
+          <span class="sub">關鍵日期</span>
+          <dl class="dates">
+            <dt>發行實施</dt><dd class="num">2026-11-10</dd>
+            <dt>過渡期</dt><dd>無（實質內容未變）</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="blk">
+        <span class="sub">原文出處</span>
+        <ul class="srcs">
+          <li><span class="src s-off">官方</span><span><a href="https://www.taftw.org.tw/news/accredited/verification-agency/TSTafNews-000916/">TAF 公告：配合 Global ACI 正式運作修訂文件引用說明</a><span class="pin"><b>第一點</b>（實質內容未變更、11/10 發行實施）；<b>第一點第 13 項</b>（TAF-MS-IC01）、<b>第 14 項</b>（TAF-MS-IF06）、<b>第 3、4、6 項</b>（C07、C08、C15）</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- U5 -->
+  <article class="card" id="u5" data-t="law">
+    <div class="card-h">
+      <div class="row"><span class="t t-law">正式法規</span><span class="rv rv-ai">AI 已核對原文</span><span class="uid">#U5</span></div>
+      <h3>TAF「驗證依據/方案審查辦法」改版為第七版</h3>
+      <div class="meta"><span>管理系統驗證（各標準通用）</span><span>TAF</span><span class="num">公告 2026-11-12</span><span class="num">實施 2026-10-27</span></div>
+    </div>
+    <div class="card-b">
+      <p class="lead">TAF-AA-C13 第七版調整了驗證依據/方案審查小組的人員組成和會議主席，並因應 Global ACI 更新相關敘述。實施日 10/27 早於本期，公告日 11/12 落在本期，所以列入。</p>
+      <div class="two">
+        <div class="blk">
+          <span class="sub">跟前一版差在哪</span>
+          <div class="tbl"><table class="diff">
+            <thead><tr><th>項目</th><th>第六版</th><th>第七版（官方修訂說明）</th></tr></thead>
+            <tbody>
+              <tr><td><span class="op op-mod">修改</span><br>審查小組</td><td><span class="empty-side">原文未比對</span></td><td>調整驗證依據/方案審查小組之<ins>人員組成及會議主席</ins></td></tr>
+              <tr><td><span class="op op-mod">修改</span><br>引用文件</td><td><span class="empty-side">原文未比對</span></td><td>因應 Global ACI 正式運作及發行相關文件，<ins>更新相關敘述與其對應文件</ins></td></tr>
+            </tbody>
+          </table></div>
+          <p class="note">TAF 只公告修訂重點。逐段對照要登入會員專區或從文件專區下載第六、七版全文。</p>
+        </div>
+        <div class="blk">
+          <span class="sub">關鍵日期</span>
+          <dl class="dates">
+            <dt>發行實施</dt><dd class="num">2026-10-27</dd>
+            <dt>過渡期</dt><dd>公告未提</dd>
+          </dl>
+          <span class="sub">對客戶的影響</span>
+          <ul><li>這是 TAF 內部審查新驗證方案的程序，對持證客戶沒有直接要求。</li></ul>
+        </div>
+      </div>
+      <div class="blk">
+        <span class="sub">原文出處</span>
+        <ul class="srcs">
+          <li><span class="src s-off">官方</span><span><a href="https://www.taftw.org.tw/news/accredited/verification-agency/TSTafNews-000913/">TAF 公告：TAF-AA-C13 第七版</a><span class="pin"><b>第一點</b>（10/27 發行與實施）；<b>第二點第 1、2 項</b>（制修訂內容）</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- U6 -->
+  <article class="card" id="u6" data-t="press">
+    <div class="card-h">
+      <div class="row"><span class="t t-press">新聞稿</span><span class="rv rv-ai">AI 已核對原文</span><span class="uid">#U6</span></div>
+      <h3>歐盟執委會釋出醫材「協同評估試辦」說明會錄影</h3>
+      <div class="meta"><span>ISO 13485（EU MDR）</span><span>European Commission</span><span class="num">2026-11-13</span></div>
+    </div>
+    <div class="card-b">
+      <p class="lead">執委會醫材頁面公告「Watch it back! Webinar on pilot coordinated assessment for medical devices」，提供說明會錄影。本期沒有看錄影內容。</p>
+      <div class="two">
+        <div class="blk">
+          <span class="sub">跟前一版差在哪</span>
+          <div class="nodiff"><b>公告是第一次發布，沒有前一版。</b></div>
+        </div>
+        <div class="blk">
+          <span class="sub">對客戶的影響</span>
+          <ul><li>外銷歐盟醫材廠：轉給負責歐盟法規的窗口參考即可。</li></ul>
+        </div>
+      </div>
+      <div class="blk">
+        <span class="sub">原文出處</span>
+        <ul class="srcs">
+          <li><span class="src s-off">官方</span><span><a href="https://health.ec.europa.eu/medical-devices-sector/new-regulations_en">European Commission：Medical devices – new regulations</a><span class="pin">頁面最新消息列表，11/13 該則</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <p class="nodiff" id="empty" hidden>這個類型本週沒有更新。</p>
+  </div>
+</section>
+
+<!-- ============ 三、15 項追蹤總覽 ============ -->
+<section class="part" id="tracker">
+  <div class="part-h"><span class="no">三</span><h2>15 項追蹤總覽</h2></div>
+  <div class="tbl"><table class="track">
+    <thead><tr><th>項目</th><th>本期狀態</th><th>一句話</th><th>本週更新</th></tr></thead>
+    <tbody>
+      <tr><td class="nowrap"><b>CRA</b></td><td><span class="st st-rec">近期變動</span></td><td>SRP 11/4 升級 v1.3；本週官方無新公告</td><td>—</td></tr>
+      <tr><td class="nowrap"><b>CMMC</b></td><td><span class="st st-none">無變動</span></td><td>Phase 2 仍暫停，Federal Register 無新文件</td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISO 9001</b></td><td><span class="st st-rec">近期變動</span></td><td>TAF 10/29 發布 TAF-MS-L77 轉換要求</td><td>—</td></tr>
+      <tr><td class="nowrap"><b>AML/CFT</b></td><td><span class="st st-rec">近期變動</span></td><td>VASP 子法預告意見期進行中；FATF 10 月全會結果</td><td>—</td></tr>
+      <tr><td class="nowrap"><b>TISAX</b></td><td><span class="st st-none">無變動</span></td><td>ISA2027 於 2027-01-01 生效</td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISO 27701</b></td><td><span class="st st-none">無變動</span></td><td>TAF 仍無 27701:2025 轉版公告</td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISMS（資安法）</b></td><td><span class="st st-new">本期有動態</span></td><td>條文未修正；資安署、金管會接連發布 AI 網攻要求</td><td><a href="#u1">U1</a> <a href="#u2">U2</a></td></tr>
+      <tr><td class="nowrap"><b>PIMS（個資法）</b></td><td><span class="st st-new">本期有動態</span></td><td>資安署呼籲 72 小時通知當事人；修正條文施行日仍未定</td><td><a href="#u1">U1</a></td></tr>
+      <tr><td class="nowrap"><b>ISO 42001</b></td><td><span class="st st-new">本期有動態</span></td><td>TAF 42006 認證規範草案徵詢至 11/24</td><td><a href="#u3">U3</a></td></tr>
+      <tr><td class="nowrap"><b>ISO 27001</b></td><td><span class="st st-new">本期有動態</span></td><td>TAF-MS-IC01 改版為第 4 版，只改引用說明</td><td><a href="#u4">U4</a> <a href="#u5">U5</a></td></tr>
+      <tr><td class="nowrap"><b>ISO 13485</b></td><td><span class="st st-new">本期有動態</span></td><td>執委會釋出協同評估試辦說明會錄影</td><td><a href="#u6">U6</a></td></tr>
+      <tr><td class="nowrap"><b>IEC 62443-4-1</b></td><td><span class="st st-none">無變動</span></td><td>國際版仍為 Ed.1.0（2018）</td><td>—</td></tr>
+      <tr><td class="nowrap"><b>SSDLC</b></td><td><span class="st st-none">無變動</span></td><td>NIST SSDF v1.2 仍是草案；金管會要求資安左移（見 U2）</td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISO 27017</b></td><td><span class="st st-none">無變動</span></td><td>2026 版 7 月發布，無轉版要求</td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISO 27018</b></td><td><span class="st st-none">無變動</span></td><td>2025 版為現行版</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 四、未來重要日期 ============ -->
+<section class="part" id="deadlines">
+  <div class="part-h"><span class="no">四</span><h2>未來重要日期</h2><small>依日期排序，紅字為 60 天內</small></div>
+  <p class="note">這是跨期累積的清單，不只列本週新聞：收錄本期與先前各期查到、尚未到來的官方日期，每週重新核對官方頁面後保留或刪除。每列右側標示出處：「本期 U#」對應本期細節卡片；「先前追蹤」為先前各期（最早試行版回溯 11 週建立基準）收錄、日期還沒到的項目。</p>
+  <div class="tl">
+    <div class="is-soon"><span class="d">2026-11-24</span><span class="w">ISO 42001</span><span>TAF-MS-AC01 草案徵詢意見截止<a href="https://www.taftw.org.tw/news/accredited/verification-agency/TSTafNews-000912/">官方</a><span class="org">本期 <a href="#u3">U3</a></span></span></div>
+    <div class="is-soon"><span class="d">2026-12 中旬</span><span class="w">AML/CFT</span><span>虛擬資產服務法子法預告意見截止（公報刊登翌日起 40 日）<a href="https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0,2&amp;mcustomize=news_view.jsp&amp;dataserno=202611030001&amp;dtable=News">官方</a><span class="org">先前追蹤</span></span></div>
+    <div class="is-soon"><span class="d">2026-12-11</span><span class="w">CRA</span><span>各成員國應完成足夠的符合性評鑑機構通報<a href="https://digital-strategy.ec.europa.eu/en/factpages/cyber-resilience-act-implementation">官方</a><span class="org">先前追蹤</span></span></div>
+    <div class="is-soon"><span class="d">2027-01-01</span><span class="w">TISAX</span><span>VDA ISA2027 生效，以評估訂購日判定版本<a href="https://portal.enx.com/TISAX/ISA/">官方</a><span class="org">先前追蹤</span></span></div>
+    <div><span class="d">2027-02-22～26</span><span class="w">AML/CFT</span><span>FATF 全會，灰名單再更新<a href="https://www.fatf-gafi.org/en/calendars/events.html">官方</a><span class="org">先前追蹤</span></span></div>
+    <div><span class="d">2027-12-11</span><span class="w">CRA</span><span>CRA 全面適用（CE 標示、Annex I 要求）<a href="https://digital-strategy.ec.europa.eu/en/factpages/cyber-resilience-act-implementation">官方</a><span class="org">先前追蹤</span></span></div>
+    <div><span class="d">2027-12-31</span><span class="w">ISO 13485</span><span>EU MDR 第 III 類及 IIb 植入式器材過渡期結束<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0607">官方</a><span class="org">先前追蹤</span></span></div>
+    <div><span class="d">2028-03-31</span><span class="w">ISO 9001</span><span>新發及初次驗證只能依 ISO 9001:2026<a href="https://global-aci.org/en/news/global-aci-publishes-transition-requirements-for-iso-90012026/">官方</a><span class="org">先前追蹤</span></span></div>
+    <div><span class="d">2029-09-30</span><span class="w">ISO 9001</span><span>ISO 9001:2015 證書失效<a href="https://global-aci.org/en/news/global-aci-publishes-transition-requirements-for-iso-90012026/">官方</a><span class="org">先前追蹤</span></span></div>
+    <div><span class="d">待定</span><span class="w">CMMC</span><span>Phase 2（C3PAO 第三方認證）重啟日期<a href="https://dodcio.defense.gov/cmmc/About/">官方</a><span class="org">先前追蹤</span></span></div>
+  </div>
+</section>
+
+<!-- ============ 五、本期查核紀錄 ============ -->
+<section class="part" id="log">
+  <div class="part-h"><span class="no">五</span><h2>本期查核紀錄</h2><small>2026-11-16 晚間執行</small></div>
+  <div class="log">
+    <section>
+      <h3>讀不到的來源</h3>
+      <ul>
+        <li>EUR-Lex CRA 條文頁：取回空白，已改用全文頁並以瀏覽器讀取。</li>
+        <li>Cyber AB 新聞、數發部舊新聞網址：HTTP 404，已改為首頁。</li>
+        <li>Global ACI 新聞頁：轉址到電子報訂閱頁，已改為首頁。</li>
+        <li>EU AMLA 新聞頁：可讀取，但顯示 0 筆資料。</li>
+      </ul>
+    </section>
+    <section>
+      <h3>因來源不足而未收錄</h3>
+      <ul>
+        <li>CRA 水平標準 EN 40000-1-1／1-2 出版消息：只有次級來源，CEN-CENELEC 官方尚未公告。官方公告後再列入。</li>
+        <li>只有媒體或顧問公司說法的期限（TISAX 舊版截止年份、虛擬資產服務法施行時程等）。</li>
+      </ul>
+    </section>
+    <section>
+      <h3>本期沒做到的比對</h3>
+      <ul>
+        <li>TAF 文件全文需登入會員專區，U4、U5 只能比對公告列出的修訂重點。</li>
+        <li>金管會先前兩份政策文件未讀取，U2 無法和先前要求逐段比對。</li>
+        <li>下期起會保存每個來源的原文快照，週與週之間可以自動比對文字差異。</li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer class="foot gut"><div class="in"><span>思維風險管理顧問 RISKMANCER｜法規更新周報 Vol.0</span><span>AI 產出，內部參考用；對外引用前請核對原文出處</span></div></footer>
+
+<script type="application/json" id="issue-stats">{"issue":2,"date":"2026-11-17","period_start":"2026-11-10","updates":6,"law_count":2,"open_consultations":1,"items_with_updates":5,"types":{"law":2,"draft":1,"guide":0,"faq":0,"press":3}}</script>
+<script>
+(function(){
+  var rows=[].slice.call(document.querySelectorAll('.list tbody tr'));
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var empty=document.getElementById('empty');
+  var btns=[].slice.call(document.querySelectorAll('.filters button'));
+  function apply(t){
+    var n=0;
+    rows.forEach(function(r){r.hidden=!(t==='all'||r.dataset.t===t)});
+    cards.forEach(function(c){var ok=t==='all'||c.dataset.t===t;c.hidden=!ok;if(ok)n++});
+    empty.hidden=n>0;
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t===t?'true':'false')});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t)})});
+  [].slice.call(document.querySelectorAll('a.stat[data-go]')).forEach(function(a){a.addEventListener('click',function(){apply(a.dataset.go)})});
+})();
+</script>
