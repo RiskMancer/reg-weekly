@@ -4,7 +4,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
 <style>
-/* Layout: 品牌刊頭（深玉綠帶＋金黃細線）→ 一、這週發生了什麼（數字、類型分布、更新清單）→ 二、單則細節（前後對照、關鍵日期、原文出處、不確定標註）→ 三、15 項總覽 → 四、未來重要日期（跨期累積，每列標出處）→ 五、查核紀錄 */
+/* Layout: 品牌刊頭（深玉綠帶＋金黃細線）→ 一、這週發生了什麼（數字、類型分布、更新清單）→ 二、單則細節（前後對照、關鍵日期、原文出處、不確定標註）→ 三、15 項總覽 → 四、未來重要日期（跨期累積，每列標出處） */
 :root{
   --paper:#ffffff; --surface:#f5f8f7; --ink:#16241f; --muted:#5a6863; --line:#dbe3e0;
   --jade:#0a4c47; --jade-ui:#157b71; --jade-soft:#e4f0ed;
@@ -576,43 +576,6 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
   </div>
 </section>
 
-<!-- ============ 五、本期查核紀錄 ============ -->
-<section class="part" id="log">
-  <div class="part-h"><span class="no">五</span><h2>本期查核紀錄</h2><small>2026-11-22 執行</small></div>
-  <div class="log">
-    <section>
-      <h3>讀不到的來源</h3>
-      <ul>
-        <li>Federal Register CMMC 搜尋頁：轉址到 unblock.federalregister.gov 阻擋頁，改以 DoD CIO 頁面確認 Phase 2 仍暫停。</li>
-        <li>Global ACI 首頁：瀏覽器讀到空白內容；ISO 9001 轉版要求的新聞頁可正常讀取。</li>
-        <li>立法院議案查詢（ppg.ly.gov.tw/ppg/bills）：HTTP 404，顯示「此筆資料尚未建置」。</li>
-        <li>EU AMLA news_en：顯示 0 筆，改讀同站 News articles 頁。</li>
-        <li>Cyber AB 首頁：沒有新聞列表可讀。</li>
-        <li>洗防辦 11/18「洗防辦發表年度成果 強化國際接軌迎戰第五輪評鑑」：內文只有 29 MB PDF 附件，本期未讀取，所以沒有收錄。</li>
-      </ul>
-    </section>
-    <section>
-      <h3>因來源不足而未收錄</h3>
-      <ul>
-        <li>IEC 62443-4-1：歐洲修正案草案 EN IEC 62443-4-1:2018/prAA:2026 及 Ed.2 預計時程，只見於標準販售平台與驗證機構文件，IEC 官網仍為 2018 年版。</li>
-        <li>VASP 子法預計「2026 年底或 2027 年初上路」：只有律師說法。</li>
-        <li>ISO/IEC 27701:2025 轉版期「24～36 個月」：只有驗證機構網站說法，TAF 與 Global ACI 未公告。</li>
-      </ul>
-    </section>
-    <section>
-      <h3>本期沒做到的比對</h3>
-      <ul>
-        <li>ENISA 沒有公布 SRP 1.4 版的變更內容，U1 只能比對公告文字。</li>
-        <li>EN 40000-1-1／1-2 全文需向各國標準機構購買，U5 只依 CEN-CENELEC 公告整理。</li>
-        <li>TAF-PC-M14 草案全文在 TAF 文件討論區，本期未讀取；W07、W08 公告未列前一版版次。</li>
-        <li>AMLA 與 EPPO 工作協議 PDF 未讀取，U2 依新聞稿網頁整理。</li>
-        <li>上一期把 VASP 子法預告截止寫成「2026-12 中旬」，那是推算值；本期改為照金管會原文寫「公報刊登翌日起 40 日」，查到公報刊登日後再補上確切日期。</li>
-        <li>上一期頁尾 issue-stats 的 issue 欄位為 2，與 Vol.0 不符；本期依期號規則填 1。</li>
-        <li>各來源的原文快照本期仍未建立，週與週之間還沒有自動比對文字差異。</li>
-      </ul>
-    </section>
-  </div>
-</section>
 
 </div>
 </main>
