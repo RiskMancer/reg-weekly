@@ -718,3 +718,122 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
   window.addEventListener('hashchange',openHash);openHash();
 })();
 </script>
+<!-- ===== 周報快速留言（插在頁尾 script 之後）===== -->
+<style>
+.cm{border-top:1px dashed var(--line);padding-top:14px;display:grid;gap:8px}
+.cm-h{font-size:.85rem;color:var(--muted);display:flex;justify-content:space-between;gap:4px 12px;flex-wrap:wrap}
+.cm-h b{color:var(--ink);font-weight:700}
+.cm-q{font-size:.85rem;color:var(--muted);border-left:3px solid var(--goose);padding:6px 10px;background:var(--surface);display:flex;gap:8px;align-items:flex-start}
+.cm-q[hidden]{display:none}
+.cm-q span{flex:1;min-width:0;overflow-wrap:anywhere}
+.cm-q button{border:0;background:none;color:var(--muted);cursor:pointer;font:inherit;padding:0 4px}
+.cm textarea{font:inherit;font-size:.92rem;line-height:1.6;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:9px 12px;min-height:44px;resize:vertical;width:100%;box-sizing:border-box}
+.cm textarea:focus{outline:2px solid var(--goose);outline-offset:-1px}
+.cm-row{display:none;gap:8px;align-items:center;flex-wrap:wrap}
+.cm.on .cm-row{display:flex}
+.cm-row input{font:inherit;font-size:.85rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:7px 10px;width:10em}
+.cm-row small{color:var(--muted);font-size:.75rem}
+.cm-row .sp{flex:1}
+.cm-send{font:inherit;font-weight:700;color:#0a4c47;background:var(--goose);border:1px solid #e0af00;border-radius:2px;padding:7px 18px;cursor:pointer}
+.cm-send:hover{background:#ffd43b}
+.cm-send:disabled{opacity:.55;cursor:default}
+.cm-ok{font-size:.85rem;color:var(--jade-ui)}
+.cm-all{margin:24px 0 0;padding:16px 20px;border:1px solid var(--line);border-left:4px solid var(--goose);background:var(--surface)}
+.cm-all .cm{border-top:0;padding-top:0}
+.cm-end{margin:32px auto 24px;background:#fff6cc;border:1px solid #f0d46b;border-left:6px solid var(--goose)}
+.cm-end .cm-h,.cm-end .cm-h b{color:#4a3b00}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cm-end{background:#2e2710;border-color:#5c4a12}:root:not([data-theme="light"]) .cm-end .cm-h,:root:not([data-theme="light"]) .cm-end .cm-h b{color:#f5e3a1}}
+:root[data-theme="dark"] .cm-end{background:#2e2710;border-color:#5c4a12}
+:root[data-theme="dark"] .cm-end .cm-h,:root[data-theme="dark"] .cm-end .cm-h b{color:#f5e3a1}
+.cm-chip{position:absolute;z-index:60;display:none;font:inherit;font-size:.85rem;font-weight:700;color:#0a4c47;background:var(--goose);border:1px solid #e0af00;border-radius:2px;padding:6px 12px;box-shadow:0 2px 10px rgba(0,0,0,.2);cursor:pointer}
+@media (max-width:640px){
+  .cm-h span:last-child{display:none}
+  .cm-row input{flex:1;width:auto}
+  .cm-row small{display:none}
+  .cm-send{flex:1;padding:9px}
+  .cm-all{padding:12px 14px}
+}
+</style>
+<script>
+(function(){
+  var EP='https://script.google.com/macros/s/AKfycbyjx8hRsVUa7Q9INSc-l8xLghAzqcLItBcDmjzol0SKwoUt2x6UucIAuJqIrw5Vq-f_/exec';   // Apps Script 網頁應用程式網址；留空 = 預覽模式（不實際送出）
+  var VOL='Vol.1';
+  var live=EP.indexOf('__')!==0 && EP!=='';
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k)||'';localStorage.setItem(k,v)}catch(e){return ''}}
+
+  function makeBox(item, hint){
+    var w=document.createElement('div'); w.className='cm'; w.dataset.item=item;
+    w.innerHTML='<div class="cm-h"><span><b>留言</b>　'+hint+'</span><span>也可以反白頁面文字，按「留言」引用</span></div>'+
+      '<div class="cm-q" hidden><span></span><button type="button" aria-label="移除引用">✕</button></div>'+
+      '<textarea rows="1" aria-label="留言內容" placeholder="有任何想法都歡迎留言，例如：這個日期好像和原文不太一樣？"></textarea>'+
+      '<div class="cm-row"><input type="text" maxlength="20" aria-label="你的名字" placeholder="你的名字"><small>Ctrl+Enter 送出</small><span class="sp"></span><button type="button" class="cm-send">送出</button></div>'+
+      '<div class="cm-ok" role="status" hidden></div>';
+    var ta=w.querySelector('textarea'), nm=w.querySelector('input'), btn=w.querySelector('.cm-send'),
+        q=w.querySelector('.cm-q'), ok=w.querySelector('.cm-ok');
+    nm.value=store('rw_name');
+    ta.addEventListener('focus',function(){w.classList.add('on');ok.hidden=true});
+    ta.addEventListener('input',function(){ta.style.height='auto';ta.style.height=Math.min(ta.scrollHeight+2,320)+'px'});
+    ta.addEventListener('keydown',function(e){if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();send()}});
+    q.querySelector('button').addEventListener('click',function(){q.hidden=true;q.querySelector('span').textContent=''});
+    btn.addEventListener('click',send);
+    function send(){
+      var text=ta.value.trim(); if(!text){ta.focus();return}
+      var quote=q.hidden?'':q.querySelector('span').textContent;
+      var name=nm.value.trim(); store('rw_name',name);
+      var p={vol:VOL,item:item,quote:quote,comment:text,name:name,page:location.href};
+      btn.disabled=true; btn.textContent='送出中…';
+      var done=function(msg){
+        btn.disabled=false; btn.textContent='送出';
+        ta.value=''; ta.style.height=''; q.hidden=true; q.querySelector('span').textContent='';
+        ok.textContent=msg; ok.hidden=false;
+      };
+      if(!live){setTimeout(function(){done('預覽模式：沒有實際送出。正式版會直接送到 Zoe 的回饋表。')},300);return}
+      fetch(EP,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(p)})
+        .then(function(){done('已收到，謝謝您的指教！')})
+        .catch(function(){btn.disabled=false;btn.textContent='送出';ok.textContent='好像沒有送出成功，麻煩稍後再試一次（內容還保留在框裡）。';ok.hidden=false});
+    }
+    w.setQuote=function(t){q.querySelector('span').textContent='「'+t+'」';q.hidden=false};
+    w.focusBox=function(){w.classList.add('on');ta.focus({preventScroll:true});w.scrollIntoView({block:'center',behavior:'smooth'})};
+    return w;
+  }
+
+  // 1) 每則更新卡片底部
+  document.querySelectorAll('article.card[id^="u"]').forEach(function(card){
+    var body=card.querySelector('.card-b'); if(!body) return;
+    var id=card.id.toUpperCase();
+    body.insertBefore(makeBox(id,'對 '+id+' 有任何想法，都歡迎指教'), body.querySelector(':scope>.fold-btn'));
+  });
+  // 2) 單則細節區塊後面
+  var cards=document.querySelector('#detail .cards');
+  if(cards){var a=document.createElement('div');a.className='cm-all';a.appendChild(makeBox('整體','對周報整體有任何建議（想追蹤的法規、版面、頻率…），都很歡迎告訴我'));cards.parentNode.insertBefore(a,cards.nextSibling)}
+  // 3) 頁面最末端
+  var foot=document.querySelector('footer.foot'), endBox=null;
+  if(foot){var g=document.createElement('div');g.className='gut';var i=document.createElement('div');i.className='in cm-all cm-end';endBox=makeBox('整體','謝謝您看完這期！如果有需要更正、想補充的地方，或對周報有任何建議，都很歡迎留言指教');i.appendChild(endBox);g.appendChild(i);foot.parentNode.insertBefore(g,foot)}
+
+  // 反白文字 → 浮出「留言」按鈕
+  var chip=document.createElement('button'); chip.type='button'; chip.className='cm-chip'; chip.textContent='💬 留言';
+  document.body.appendChild(chip);
+  var pending=null;
+  function hideChip(){chip.style.display='none';pending=null}
+  function check(){
+    var s=window.getSelection(); if(!s||s.isCollapsed||!s.rangeCount){hideChip();return}
+    var t=s.toString().replace(/\s+/g,' ').trim(); if(t.length<2){hideChip();return}
+    var node=s.anchorNode; var el=node&&(node.nodeType===1?node:node.parentElement);
+    if(!el||el.closest('.cm')||el.closest('.cm-chip')){hideChip();return}
+    var card=el.closest('article.card[id^="u"]');
+    var box=card?card.querySelector('.cm'):endBox; if(!box){hideChip();return}
+    var r=s.getRangeAt(0).getBoundingClientRect();
+    pending={box:box,card:card,text:t.length>300?t.slice(0,300)+'…':t};
+    chip.style.display='block';
+    var left=Math.min(Math.max(8,r.left+window.scrollX),document.documentElement.clientWidth-chip.offsetWidth-8+window.scrollX);
+    chip.style.left=left+'px'; chip.style.top=(r.bottom+window.scrollY+8)+'px';
+  }
+  var tmr; document.addEventListener('selectionchange',function(){clearTimeout(tmr);tmr=setTimeout(check,250)});
+  chip.addEventListener('mousedown',function(e){e.preventDefault()});
+  chip.addEventListener('click',function(){
+    if(!pending) return; var p=pending;
+    if(p.card&&p.card.classList.contains('folded')){var fb=p.card.querySelector('.fold-btn');if(fb)fb.click()}
+    p.box.setQuote(p.text); window.getSelection().removeAllRanges(); hideChip(); p.box.focusBox();
+  });
+})();
+</script>
