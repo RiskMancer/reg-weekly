@@ -244,6 +244,14 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
   .track td:nth-child(3){grid-column:1/-1;font-size:.85rem;color:var(--muted)}
   .track td:nth-child(4){display:none}
 }
+/* issue-nav */
+.issue-nav{display:flex;flex-wrap:wrap;gap:10px}
+.issue-nav a{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:6px 16px;border-radius:999px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .15s,color .15s}
+.mast .issue-nav a{color:var(--band-ink);border:1px solid var(--goose)}
+.mast .issue-nav a:hover,.mast .issue-nav a:focus-visible{background:var(--goose);color:#16241f}
+.foot .issue-nav{flex-basis:100%;margin-bottom:6px}
+.foot .issue-nav a{color:var(--jade-ui);border:1px solid var(--line);font-size:.85rem}
+.foot .issue-nav a:hover,.foot .issue-nav a:focus-visible{background:var(--jade-soft)}
 </style>
 
 <header class="mast gut">
@@ -280,6 +288,7 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
       <span>涵蓋期間 <b>2026-11-15 – 11-21</b></span>
       <span>追蹤 <b>15</b> 項法規／標準</span>
     </div>
+    <nav class="issue-nav" aria-label="其他期數"><a class="issue-next" href="../vol2/">下一期 Vol.2 &rarr;</a></nav>
   </div>
 </header>
 
@@ -676,7 +685,7 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
 </div>
 </main>
 
-<footer class="foot gut"><div class="in"><span>思維風險管理顧問 RISKMANCER｜法規更新周報 Vol.1</span><span>AI 產出，內部參考用；對外引用前請核對原文出處</span></div></footer>
+<footer class="foot gut"><div class="in"><nav class="issue-nav" aria-label="其他期數"><a class="issue-next" href="../vol2/">下一期 Vol.2 &rarr;</a></nav><span>思維風險管理顧問 RISKMANCER｜法規更新周報 Vol.1</span><span>AI 產出，內部參考用；對外引用前請核對原文出處</span></div></footer>
 
 <script type="application/json" id="issue-stats">{"issue":1,"date":"2026-11-21","period_start":"2026-11-15","updates":6,"law_count":1,"open_consultations":1,"items_with_updates":3,"types":{"law":1,"draft":1,"guide":0,"faq":0,"press":4}}</script>
 <script>
