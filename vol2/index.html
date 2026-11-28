@@ -131,7 +131,7 @@ tbody tr:last-child td{border-bottom:0}
 .card-h .uid{font-family:var(--f-num);font-size:.75rem;color:var(--muted);margin-left:auto}
 .card-b{padding:16px 20px 18px;display:grid;gap:18px}
 .lead{margin:0;font-weight:500;max-width:72ch}
-.blk{display:grid;gap:8px;min-width:0}
+.blk{display:grid;gap:8px;min-width:0;align-content:start}
 .two{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:18px 28px}
 @media (max-width:820px){.two{grid-template-columns:1fr}}
 
@@ -243,6 +243,7 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
   .track td{padding:0;border:0}
   .track td:nth-child(3){grid-column:1/-1;font-size:.85rem;color:var(--muted)}
   .track td:nth-child(4){display:none}
+  .track td:empty{display:none}
 }
 /* issue-nav */
 .issue-nav{display:flex;flex-wrap:wrap;gap:10px}
@@ -337,7 +338,7 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
       <tbody>
         <tr data-t="press"><td><span class="t t-press">新聞稿</span></td><td class="nowrap">ISMS（資通安全）</td><td>數發部資安署</td><td class="num nowrap">11-21</td><td class="sum"><a href="#u1">NGINX 兩項 HTTP/2 遠端程式碼執行漏洞，資安署要求公務機關與關鍵基礎設施儘速更新</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
         <tr data-t="draft"><td><span class="t t-draft">草案</span></td><td class="nowrap">AML/CFT</td><td>EU AMLA</td><td class="num nowrap">11-23</td><td class="sum"><a href="#u2">AML/CFT 監理聯合會技術標準（金融業、非金融業）草案，12/23 前可提意見</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
-        <tr data-t="draft"><td><span class="t t-draft">草案</span></td><td class="nowrap">AML/CFT</td><td>EU AMLA</td><td class="num nowrap">11-25</td><td class="sum"><a href="#u3">AML/CFT 罰鍰基準金額計算方法指引草案，2027/2/25 前可提意見</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
+        <tr data-t="draft"><td><span class="t t-draft">草案</span></td><td class="nowrap">AML/CFT</td><td>EU AMLA</td><td class="num nowrap">11-25</td><td class="sum"><a href="#u3">AML/CFT 罰鍰基準金額計算方法指引草案，徵詢頁寫 2027/2/25 截止、草案寫 2/23</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
         <tr data-t="press"><td><span class="t t-press">新聞稿</span></td><td class="nowrap">ISMS（金融）</td><td>金管會</td><td class="num nowrap">11-26</td><td class="sum"><a href="#u4">「金融業資安防護強化措施」：金融機構年底前完成 14 項自評並提報董事會</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
         <tr data-t="draft"><td><span class="t t-draft">草案</span></td><td class="nowrap">AML/CFT</td><td>EU AMLA</td><td class="num nowrap">11-26</td><td class="sum"><a href="#u5">依賴第三方、委外與第三方安排指引草案，2027/2/26 前可提意見</a></td><td><span class="rv rv-ai">AI 已核對原文</span></td></tr>
       </tbody>
@@ -414,11 +415,19 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
       <div class="meta"><span>AML/CFT</span><span>EU Anti-Money Laundering Authority（AMLA）</span><span class="num">2026-11-23</span></div>
     </div>
     <div class="card-b">
-      <p class="lead">AMLA 同時開啟兩項公開徵詢，對象是 AML/CFT 監理聯合會（supervisory colleges）運作條件的監管技術標準（RTS）草案，分別適用金融業與非金融業。監理聯合會是監理機關之間對跨多個會員國營運的機構或集團進行合作、協調與資訊交換的機制。新聞稿明寫：草案只涉及監理機關之間的合作，對受反洗錢規範的業者沒有直接影響。</p>
+      <p class="lead">AMLA 同時徵詢兩份「AML/CFT 監理聯合會（supervisory colleges）運作條件」監管技術標準（RTS）草案：金融業依反洗錢指令（EU）2024/1640 第 49(14) 條，非金融業依第 50(13) 條。監理聯合會是各國反洗錢監理機關針對跨國機構或集團進行合作、協調與資訊交換的機制。兩份草案的條文都是對監理機關的要求，沒有直接要求業者做事的條文。</p>
       <div class="two">
         <div class="blk">
           <span class="sub">跟前一版差在哪</span>
-          <div class="nodiff"><b>兩份都是新的 RTS 草案。</b>新聞稿第 2 段說明，金融業草案以歐洲監理機關（ESAs）2019 年發布的 AML/CFT Colleges Guidelines 核心要素為基礎；第 3 段說明非金融業目前沒有既有的監理聯合會框架，可自願設立。本期沒有讀 2019 年指引與 RTS 草案全文，無法逐條對照。</div>
+          <div class="nodiff"><b>兩份都是新的 RTS 草案。</b>金融業草案以歐洲監理機關（ESAs）2019 年 12 月的 AML/CFT 監理聯合會聯合指引（JC 2019 81）為基礎，並寫明 RTS 將廢止該聯合指引（金融業草案第 5、6、33 頁）。非金融業目前沒有正式的監理聯合會框架，草案採自願設立（非金融業草案第 6、36 頁）。</div>
+          <span class="sub">草案條文重點</span>
+          <ul>
+            <li>設立門檻：金融機構在總部所在國以外至少兩個會員國設有據點（金融業草案前言第 2 點，第 8 頁）。</li>
+            <li>開會頻率依洗錢風險：高風險每年至少 1 次；顯著或中度風險每兩年至少 1 次；低風險可用書面交換（金融業第 9(1) 條，第 13 頁；非金融業第 8 條，第 17 頁）。</li>
+            <li>風險評估結果分為高、顯著、中、低四級（金融業第 8(3) 條，第 13 頁）。</li>
+            <li>成員之間至少要交換的資訊，包括實質受益人與高階管理人員（含適任性審查結果）、客戶審查、可疑交易申報的質與量、檢查結果、擬處的罰鍰與行政措施（金融業第 17(1) 條，第 19 頁；非金融業第 18 條）。</li>
+            <li>主導監理機關一定要邀請 AMLA 參加（金融業第 18(1) 條，第 20 頁；非金融業第 19(1) 條）。</li>
+          </ul>
         </div>
         <div class="blk">
           <span class="sub">關鍵日期</span>
@@ -426,18 +435,20 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
             <dt>徵詢開始</dt><dd class="num">2026-11-23</dd>
             <dt>公聽會</dt><dd><span class="soon num">2026-12-14</span>（金融業 10:00–12:00 CET；非金融業 14:00–16:00 CET）</dd>
             <dt>意見徵詢截止</dt><dd><span class="soon num">2026-12-23</span> 23:59 CET（剩 25 天）</dd>
-            <dt>生效日</dt><dd>公告未載明</dd>
+            <dt>適用日</dt><dd>草案第 27 條寫 <span class="num">2027-07-10</span> 起適用；條文括號註明若執委會在此日之後才通過，這句可刪除</dd>
           </dl>
           <span class="sub">對客戶的影響</span>
           <ul>
-            <li>受反洗錢規範的業者（含在歐盟營運的金融與非金融業者）：新聞稿寫明這兩份草案只規範監理機關之間的合作，對業者沒有直接影響（「Shaping the final standards」段）。</li>
+            <li>在多個歐盟會員國設有據點的金融與非金融業者：條文沒有直接課予業者義務；主導監理機關經永久成員同意，可以邀請業者參加聯合會會議的特定部分（金融業第 24(1) 條，第 23 頁；非金融業第 26(1) 條，第 28 頁）。草案的影響評估寫明，業者受邀參加時可能有一些行政成本（金融業草案第 36 頁）。</li>
           </ul>
         </div>
       </div>
       <div class="blk">
         <span class="sub">原文出處</span>
         <ul class="srcs">
-          <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/press-release-amla-consults-amlcft-supervisory-colleges-eu_en">AMLA 新聞稿：AMLA consults on AML/CFT supervisory colleges in the EU</a><span class="pin"><b>第 1 段</b>（兩項 RTS 草案、監理聯合會定義）；<b>「Building on experience in the financial sector」段</b>（以 2019 年 ESAs 指引為基礎）；<b>「A tailored approach for the non-financial sector」段</b>（非金融業自願設立）；<b>「Shaping the final standards」段</b>（12/23 截止、對業者無直接影響、12/14 公聽會）</span></span></li>
+          <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/document/download/a6396873-1cc5-4dd7-a574-b6562ebfed85_en?filename=CONSUL~2.PDF">草案全文：金融業 RTS 徵詢文件（PDF，37 頁）</a><span class="pin"><b>第 5–6 頁</b>（2019 聯合指引）；<b>第 8 頁</b>（法源、前言第 2 點門檻）；<b>第 8(3)、9(1)、17(1)、18(1)、24(1)、27 條</b>；<b>第 33、36 頁</b>（廢止聯合指引、影響評估）</span></span></li>
+          <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/document/download/9229847e-dff3-4e5d-983c-9bdd1b266245_en?filename=CONSUL~1.PDF">草案全文：非金融業 RTS 徵詢文件（PDF，42 頁）</a><span class="pin"><b>第 6 頁</b>（自願設立）；<b>第 8、18、19(1)、26(1)、27 條</b>；<b>第 36 頁</b>（目前沒有正式框架）</span></span></li>
+          <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/press-release-amla-consults-amlcft-supervisory-colleges-eu_en">AMLA 新聞稿：AMLA consults on AML/CFT supervisory colleges in the EU</a><span class="pin"><b>「Shaping the final standards」段</b>（12/14 公聽會時段）</span></span></li>
           <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/policy/public-consultations_en">AMLA：Public Consultations</a><span class="pin">列表第 3、4 筆（開始 2026-11-23、截止 2026-12-23 23:59 CET）</span></span></li>
         </ul>
       </div>
@@ -452,39 +463,47 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
       <div class="meta"><span>AML/CFT</span><span>EU Anti-Money Laundering Authority（AMLA）</span><span class="num">2026-11-25</span></div>
     </div>
     <div class="card-b">
-      <p class="lead">AMLA 提出指引草案，訂定歐盟各國監理機關決定 AML/CFT 罰鍰「基準金額」（計算罰鍰的起點）的共同方法。新聞稿指出，目前各會員國的 AML/CFT 平均罰鍰從 1.5 萬歐元到 1,000 萬歐元不等，類似違規在不同國家結果差異很大。</p>
+      <p class="lead">AMLA 依反洗錢指令（EU）2024/1640 第 53(11) 條提出指引草案，訂定各國監理機關決定 AML/CFT 罰鍰「基準金額」的共同方法：法人以年度總營業額、自然人以年度總收入為基礎，乘上依違規等級訂的百分比區間。指引的對象是監理機關（草案指引第 1.1、1.2 節，第 11 頁）。</p>
       <div class="two">
         <div class="blk">
           <span class="sub">跟前一版差在哪</span>
-          <div class="nodiff"><b>新的指引草案，沒有前一版。</b>新聞稿說明，這份指引補充 AMLA 今年稍早已送交執委會的執法 RTS：RTS 規範違規嚴重性分級與罰鍰水準的判斷標準，本指引再補上決定起始金額的共同方法。</div>
-          <span class="sub">草案提出的計算要素</span>
-          <ul>
-            <li>違規的嚴重性</li>
-            <li>義務機構的類別</li>
-            <li>法律形式</li>
-            <li>適當的財務指標（例如營業額）</li>
-            <li>基準金額之後，再依加重與減輕因素決定最終罰鍰</li>
-          </ul>
+          <div class="nodiff"><b>新的指引草案，沒有前一版。</b>違規等級沿用同指令第 53(10) 條執法 RTS 草案的四級分類（第 4 頁）。定稿預計 2027 年第 2 季發布（第 4 頁）。影響評估寫明百分比仍會再測試、可能修改（第 18 頁）。</div>
+          <span class="sub">計算步驟（指引第 3.2 節）</span>
+          <ol>
+            <li>依執法 RTS 把違規分為第 1～4 級，第 4 級最重（第 8 段，第 14 頁）。</li>
+            <li>區分法人與自然人；自然人包括本身是義務機構的個人，以及依國內法應對違規負責的高階管理人員等（第 10–11 段，第 14–15 頁）。</li>
+            <li>財務指標：法人用年度總營業額，自然人用年度總收入；取不到時由監理機關判斷最接近的替代指標。資料來源依序為經查核財報、稅務文件、監理申報、管理帳、官方聲明、合理估計（第 13–18 段，第 15–16 頁）。</li>
+            <li>套用下表百分比區間，算出基準金額（第 20–21 段、表 1，第 17 頁）。</li>
+          </ol>
+          <div class="tbl"><table>
+            <thead><tr><th>違規等級</th><th>法人</th><th>自然人</th></tr></thead>
+            <tbody>
+              <tr><td>第 3、4 級</td><td class="num">0.50%～5.00%</td><td class="num">1.00%～10.00%</td></tr>
+              <tr><td>第 1、2 級</td><td class="num">0.25%～0.50%</td><td class="num">0.50%～1.00%</td></tr>
+            </tbody>
+          </table></div>
         </div>
         <div class="blk">
           <span class="sub">關鍵日期</span>
           <dl class="dates">
             <dt>徵詢開始</dt><dd class="num">2026-11-25</dd>
-            <dt>公聽會</dt><dd><span class="soon num">2027-01-12</span> 10:00–12:00 CET</dd>
-            <dt>意見徵詢截止</dt><dd class="num">2027-02-25 23:59 CET</dd>
-            <dt>生效日</dt><dd>公告未載明</dd>
+            <dt>公聽會</dt><dd><span class="soon num">2027-01-12</span> 10:00–12:00 CET（新聞稿）</dd>
+            <dt>意見徵詢截止</dt><dd>兩份官方文件寫法不同：徵詢頁寫 <span class="num">2027-02-25</span> 23:59 CET；草案第 1.1 節寫 <span class="num">2027-02-23</span>（第 3 頁）</dd>
+            <dt>適用日</dt><dd><span class="num">2027-07-10</span>；AMLR 第 3 條第 3 款 (n)、(o) 目的義務機構為 <span class="num">2029-07-10</span>；2027-07-10 前已啟動的罰鍰程序不適用（指引第 2.1 節，第 12 頁）</dd>
           </dl>
           <span class="sub">對客戶的影響</span>
           <ul>
-            <li>在歐盟受 AML/CFT 監理的業者：草案定案後，監理機關會依違規嚴重性、機構類別、法律形式與營業額等財務指標算出罰鍰基準金額，再依加重、減輕因素調整（「What the Guidelines set out」段）。</li>
-            <li>想對草案表達意見的利害關係人：可用任一歐盟官方語言透過 EU Survey 提交意見，並可報名 2027-01-12 公聽會（「How to take part」段）。</li>
+            <li>在歐盟受 AML/CFT 監理的法人：違規被認定為第 3、4 級時，視為嚴重、重複或系統性違規，監理機關必須處罰鍰；第 1、2 級由監理機關判斷（第 4 段，第 13 頁）。基準金額為年度總營業額的 0.50%～5.00%（第 3、4 級）或 0.25%～0.50%（第 1、2 級），再依加重、減輕因素決定最終金額（第 5 段、表 1）。</li>
+            <li>可能被處罰的自然人（含高階管理人員）：基準為年度總收入的 1.00%～10.00%（第 3、4 級）或 0.50%～1.00%（第 1、2 級）（第 11 段、表 1）。</li>
+            <li>想對草案表達意見的利害關係人：可用任一歐盟官方語言透過 EU Survey 提交意見，並可報名 2027-01-12 公聽會（新聞稿「How to take part」段）。</li>
           </ul>
         </div>
       </div>
       <div class="blk">
         <span class="sub">原文出處</span>
         <ul class="srcs">
-          <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/press-release-amla-consults-methodology-setting-amlcft-fines_en">AMLA 新聞稿：AMLA consults on methodology for setting AML/CFT fines</a><span class="pin"><b>第 1 段</b>（基準金額定義）；<b>「Different approaches in the EU」段</b>（1.5 萬至 1,000 萬歐元）；<b>「What the Guidelines set out」第 1、2 段</b>（計算要素、與執法 RTS 的關係）；<b>「How to take part」段</b>（EU Survey、1/12 公聽會）</span></span></li>
+          <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/document/download/c30d0ffe-783d-47ba-9796-974161371805_en?filename=Consultation%20Paper%20draft%20Guidelines%20under%20Article%2053%2811%29%20AMLD_3.pdf">草案全文：罰鍰基準金額指引徵詢文件（PDF，32 頁）</a><span class="pin"><b>第 1.1 節</b>（第 3 頁，2/23 截止）；<b>第 4 頁</b>（執法 RTS、2027 Q2 定稿）；<b>指引第 1.1、1.2、2.1 節</b>（第 11–12 頁）；<b>第 4、5、8、10–11、13–18、20–21 段與表 1</b>（第 13–17 頁）；<b>影響評估</b>（第 18 頁）</span></span></li>
+          <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/press-release-amla-consults-methodology-setting-amlcft-fines_en">AMLA 新聞稿：AMLA consults on methodology for setting AML/CFT fines</a><span class="pin"><b>「How to take part」段</b>（EU Survey、1/12 公聽會）</span></span></li>
           <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/policy/public-consultations_en">AMLA：Public Consultations</a><span class="pin">列表第 2 筆（開始 2026-11-25、截止 2027-02-25 23:59 CET）</span></span></li>
         </ul>
       </div>
@@ -503,7 +522,7 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
       <div class="two">
         <div class="blk">
           <span class="sub">跟前一版差在哪</span>
-          <div class="nodiff"><b>新聞稿是第一次發布，沒有前一版。</b>新聞稿第 2 段說明本措施延續「金融資安韌性發展藍圖」及「金融業應對 AI 攻擊的挑戰與策略建議」。11/12 資安長會議的六項措施已在試行版 Vol.0 收錄；本期是後續要求，新增「年底前自評、提報董事會」的時程。14 項自評事項的逐項清單在新聞稿中只寫到五大類，本期沒有讀到逐項原文。</div>
+          <div class="nodiff"><b>新聞稿是第一次發布，沒有前一版。</b>新聞稿第 2 段說明本措施延續「金融資安韌性發展藍圖」及「金融業應對 AI 攻擊的挑戰與策略建議」。新聞稿只列出五大類，沒有附 14 項自評事項的逐項清單。</div>
           <span class="sub">五大類自評內容（第 3 段）</span>
           <ol>
             <li>曝險收斂：對外連線點清冊、關閉非必要服務；優先修補已遭利用的重大漏洞（尤其防火牆、VPN 等邊界設備）；EoS 系統採補償控制並訂汰換計畫；管理介面採 MFA 與最小授權</li>
@@ -546,38 +565,43 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
       <div class="meta"><span>AML/CFT</span><span>EU Anti-Money Laundering Authority（AMLA）</span><span class="num">2026-11-26</span></div>
     </div>
     <div class="card-b">
-      <p class="lead">AMLA 提出指引草案，規範受反洗錢規範的業者使用外部服務商或其他第三方協助履行 AML/CFT 義務時，應如何管理這些安排。草案寫明：AML/CFT 法遵責任始終由業者本身承擔。</p>
+      <p class="lead">AMLA 依反洗錢規則（AMLR，（EU）2024/1624）第 18(8)、50 條，以及 AMLA 規則第 54 條提出指引草案，規範義務機構委外、依賴其他義務機構的客戶審查，以及使用第三方工具等安排（第 1 段，第 18 頁）。草案寫明：任何情況下，這些安排都不會移轉義務機構的法遵責任（第 18 段，第 23 頁）。</p>
       <div class="two">
         <div class="blk">
           <span class="sub">跟前一版差在哪</span>
-          <div class="nodiff"><b>新的指引草案，沒有前一版。</b>新聞稿沒有提到要取代的既有文件。</div>
-          <span class="sub">草案涵蓋的範圍（「A common framework」段）</span>
+          <div class="nodiff"><b>新的指引草案。</b>草案第 15 段寫明，適用後將取代歐洲銀行管理局（EBA）同主題的指引（第 22 頁）；取代哪幾份，AMLA 會另外在官網公告（第 13 頁）。定稿預計 2027 年第 2 季發布（第 6 頁）。</div>
+          <span class="sub">草案條文重點</span>
           <ul>
-            <li>從初始風險評估、書面協議到責任分配的共同框架</li>
-            <li>如何辨識關鍵功能（critical functions）</li>
-            <li>如何依賴第三方完成的客戶審查（CDD）並仍符合 AML/CFT 規定</li>
-            <li>適用金融與非金融業，依業者規模、性質與複雜度採比例原則</li>
+            <li>簽約前要先判斷屬於委外、依賴，或使用第三方軟體、資料庫、篩查服務等其他第三方安排（第 27 段，第 25 頁）。</li>
+            <li>原則上屬於「關鍵功能」的有：客戶審查（含遠端客戶審查）、交易監控、目標性金融制裁、AMLR 第 18 條允許時的可疑交易申報、內部控制（第 41 段，第 28 頁）。</li>
+            <li>書面協議至少要寫明工作範圍與責任、服務提供與資料存放地點、業者仍負法遵責任的聲明、檢查與稽核權、轉換與退出安排等（第 32 段，第 26–27 頁）。</li>
+            <li>委外要事先通知監理機關，目標是在預定開始前 28 個工作天送出（第 61 段，第 35 頁）；重大變更視為新的委外，要重新通知（第 63 段，第 36 頁）。</li>
+            <li>要建立個別與集團層級的委外登錄簿（第 44 段，第 29 頁）。</li>
+            <li>第三國服務商要有額外保障措施，監理機關要求時要能證明（第 34 段，第 27 頁）。</li>
+            <li>使用 AI 系統的第三方工具，不能妨礙業者、內部控制單位或監理機關了解這些工具如何支援法遵（第 35 段，第 27 頁）。</li>
           </ul>
         </div>
         <div class="blk">
           <span class="sub">關鍵日期</span>
           <dl class="dates">
             <dt>徵詢開始</dt><dd class="num">2026-11-26</dd>
-            <dt>公聽會</dt><dd class="num">2027-02-10</dd>
+            <dt>公聽會</dt><dd class="num">2027-02-10（新聞稿）</dd>
             <dt>意見徵詢截止</dt><dd class="num">2027-02-26 23:59 CET</dd>
-            <dt>生效日</dt><dd>公告未載明</dd>
+            <dt>適用日</dt><dd>草案寫「DD.MM.YYYY」，尚未訂定；AMLR 第 3 條第 3 款 (n)、(o) 目的義務機構為 <span class="num">2029-07-10</span>；適用於該日後新訂、檢視或修改的安排（第 14 段，第 22 頁）</dd>
           </dl>
           <span class="sub">對客戶的影響</span>
           <ul>
-            <li>在歐盟受反洗錢規範、委外或依賴第三方執行 AML/CFT 作業的金融與非金融業者：即使委外，法遵責任仍在業者本身（第 1 段）；草案要求從風險評估、書面協議到責任分配建立管理框架（「A common framework」段）。</li>
-            <li>金融與非金融業者（特別是小型業者）及參與這類安排的服務提供者：AMLA 特別歡迎提供比例原則的實務資料與低風險情形的簡化建議，可在 2027-02-26 前提交意見並報名 2/10 公聽會（「Have your say」段）。</li>
+            <li>在歐盟受反洗錢規範、委外 AML/CFT 作業的業者：要判斷委外的是不是關鍵功能並留下紀錄、書面協議要有第 32 段的最低內容、建立委外登錄簿、事先通知監理機關（第 32、41、43、44、61 段）。</li>
+            <li>依賴其他義務機構客戶審查的業者：只能用在 AMLR 第 20(1) 條 (a)～(c) 款的初始客戶識別（第 66 段，第 37 頁）；被依賴的一方要在 5 個工作天內提供身分資料與文件（第 72(b)、75(b) 段，第 38–39 頁）。</li>
+            <li>想對草案表達意見的業者與服務提供者：AMLA 特別歡迎小型業者提供比例原則的實務資料，可在 2027-02-26 前提交意見並報名 2/10 公聽會（新聞稿「Have your say」段；草案第 3 頁）。</li>
           </ul>
         </div>
       </div>
       <div class="blk">
         <span class="sub">原文出處</span>
         <ul class="srcs">
-          <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/press-release-amla-consults-draft-guidelines-reliance-outsourcing-and-third-party-arrangements_en">AMLA 新聞稿：AMLA consults on draft Guidelines for reliance, outsourcing, and third-party arrangements</a><span class="pin"><b>第 1 段</b>（適用對象、責任始終在業者）；<b>「Managing outsourcing and reliance risks」段</b>（委外風險）；<b>「A common framework for working with third parties」段</b>（框架內容）；<b>「Have your say」段</b>（徵求對象、2/10 公聽會）</span></span></li>
+          <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/document/download/38dbab1f-5ffe-41ac-a646-dded75ddbb57_en?filename=Consultation%20Paper_GL%20outsourcing.pdf">草案全文：依賴、委外與第三方安排指引徵詢文件（PDF，58 頁）</a><span class="pin"><b>第 3 頁</b>（2/26 截止）；<b>第 6、13 頁</b>（2027 Q2 定稿、取代 EBA 指引另行公告）；<b>指引第 1、14、15、18、27、32、34、35、41、43、44、61、63、66、72、75 段</b>（第 18–39 頁）</span></span></li>
+          <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/press-release-amla-consults-draft-guidelines-reliance-outsourcing-and-third-party-arrangements_en">AMLA 新聞稿：AMLA consults on draft Guidelines for reliance, outsourcing, and third-party arrangements</a><span class="pin"><b>「Have your say」段</b>（徵求對象、2/10 公聽會）</span></span></li>
           <li><span class="src s-off">官方</span><span><a href="https://www.amla.europa.eu/policy/public-consultations_en">AMLA：Public Consultations</a><span class="pin">列表第 1 筆（開始 2026-11-26、截止 2027-02-26 23:59 CET）</span></span></li>
         </ul>
       </div>
@@ -592,23 +616,23 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
 <section class="part" id="tracker">
   <div class="part-h"><span class="no">三</span><h2>15 項追蹤總覽</h2></div>
   <div class="tbl"><table class="track">
-    <thead><tr><th>項目</th><th>本期狀態</th><th>一句話</th><th>本週更新</th></tr></thead>
+    <thead><tr><th>項目</th><th>本期狀態</th><th>本期更新摘要</th><th>本週更新</th></tr></thead>
     <tbody>
-      <tr><td class="nowrap"><b>AML/CFT</b></td><td><span class="st st-new">本期有動態</span></td><td>AMLA 開啟 3 項草案徵詢；金管會 VASP 子法預告期確定至 12/16</td><td><a href="#u2">U2</a> <a href="#u3">U3</a> <a href="#u5">U5</a></td></tr>
-      <tr><td class="nowrap"><b>CMMC</b></td><td><span class="st st-none">無變動</span></td><td>Phase 2 仍暫停，Phase 1 自評要求維持；Federal Register 無新文件</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>CRA</b></td><td><span class="st st-rec">近期變動</span></td><td>11/19 EN 40000-1-1／1-2 出版、11/17 SRP 升級 1.4 版；本週官方無新公告</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>IEC 62443-4-1</b></td><td><span class="st st-none">無變動</span></td><td>IEC 現行版仍為 2018 年版（Ed.1.0）</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>ISMS（資安法）</b></td><td><span class="st st-new">本期有動態</span></td><td>條文未修正；資安署 NGINX 漏洞警示；金管會要求金融業年底前完成資安自評</td><td><a href="#u1">U1</a> <a href="#u4">U4</a></td></tr>
-      <tr><td class="nowrap"><b>ISO 9001</b></td><td><span class="st st-rec">近期變動</span></td><td>TAF 11/12 修訂文件引用說明；2015 年版證書轉版期限 2029-09-30</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>ISO 13485</b></td><td><span class="st st-rec">近期變動</span></td><td>執委會 11/13 釋出協同評估試辦說明會錄影；本週無新公告</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>ISO 27001</b></td><td><span class="st st-rec">近期變動</span></td><td>TAF 11/12 修訂引用說明；ISO 現行版仍為 2022 年版（含 Amd 1:2024）</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>ISO 27017</b></td><td><span class="st st-none">無變動</span></td><td>2026 年版（第 2 版）為現行版</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>ISO 27018</b></td><td><span class="st st-none">無變動</span></td><td>2025 年版（第 3 版）為現行版</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>ISO 27701</b></td><td><span class="st st-none">無變動</span></td><td>現行版為 2025 年 10 月第 2 版；TAF 仍無轉版公告</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>ISO 42001</b></td><td><span class="st st-rec">近期變動</span></td><td>TAF-MS-AC01 草案徵詢已於 11/24 截止，尚未公告定稿</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>PIMS（個資法）</b></td><td><span class="st st-rec">近期變動</span></td><td>114-11-11 修正條文施行日期仍未定；資安署 11/11 呼籲見 Vol.0</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>SSDLC</b></td><td><span class="st st-none">無變動</span></td><td>NIST SSDF v1.2（SP 800-218r1）仍是初稿</td><td>—</td></tr>
-      <tr><td class="nowrap"><b>TISAX</b></td><td><span class="st st-none">無變動</span></td><td>ISA2027 適用於 2027 年訂購的評估</td><td>—</td></tr>
+      <tr><td class="nowrap"><b>AML/CFT</b></td><td><span class="st st-new">本期有動態</span></td><td>AMLA 開啟 3 項草案徵詢</td><td><a href="#u2">U2</a> <a href="#u3">U3</a> <a href="#u5">U5</a></td></tr>
+      <tr><td class="nowrap"><b>CMMC</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>CRA</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>IEC 62443-4-1</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISMS（資安法）</b></td><td><span class="st st-new">本期有動態</span></td><td>資安署 NGINX 漏洞警示；金管會要求金融業年底前完成資安自評</td><td><a href="#u1">U1</a> <a href="#u4">U4</a></td></tr>
+      <tr><td class="nowrap"><b>ISO 9001</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISO 13485</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISO 27001</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISO 27017</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISO 27018</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISO 27701</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>ISO 42001</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>PIMS（個資法）</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>SSDLC</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
+      <tr><td class="nowrap"><b>TISAX</b></td><td><span class="st st-none">本期未收錄更新</span></td><td></td><td>—</td></tr>
     </tbody>
   </table></div>
 </section>
@@ -625,14 +649,13 @@ footer.foot .in{padding-block:16px 28px;display:flex;flex-wrap:wrap;justify-cont
     <div class="is-soon"><span class="d">2026-12-23</span><span class="w">AML/CFT</span><span>AMLA 監理聯合會 RTS 草案徵詢截止<a href="https://www.amla.europa.eu/policy/public-consultations_en">官方</a><span class="org">本期 <a href="#u2">U2</a></span></span></div>
     <div class="is-soon"><span class="d">2026-12-31</span><span class="w">ISMS</span><span>金融機構完成「金融業資安防護強化措施」14 項自評（之後提報最近一次董事會）<a href="https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0,2&amp;mcustomize=news_view.jsp&amp;dataserno=202611260005&amp;dtable=News">官方</a><span class="org">本期 <a href="#u4">U4</a></span></span></div>
     <div class="is-soon"><span class="d">2026 Q4</span><span class="w">CRA</span><span>執委會授權法規：EUCC 對 CRA 的推定符合<a href="https://digital-strategy.ec.europa.eu/en/factpages/cyber-resilience-act-implementation">官方</a><span class="org">先前追蹤</span></span></div>
-    <div class="is-soon"><span class="d">2027-01-01</span><span class="w">TISAX</span><span>VDA ISA2027 生效，以評估訂購年度判定版本<a href="https://portal.enx.com/TISAX/ISA/">官方</a><span class="org">先前追蹤</span></span></div>
-    <div class="is-soon"><span class="d">2027-01-12</span><span class="w">AML/CFT</span><span>AMLA 罰鍰基準金額指引草案公聽會<a href="https://www.amla.europa.eu/press-release-amla-consults-methodology-setting-amlcft-fines_en">官方</a><span class="org">本期 <a href="#u3">U3</a></span></span></div>
+        <div class="is-soon"><span class="d">2027-01-12</span><span class="w">AML/CFT</span><span>AMLA 罰鍰基準金額指引草案公聽會<a href="https://www.amla.europa.eu/press-release-amla-consults-methodology-setting-amlcft-fines_en">官方</a><span class="org">本期 <a href="#u3">U3</a></span></span></div>
     <div><span class="d">2027-02-10</span><span class="w">AML/CFT</span><span>AMLA 依賴第三方與委外指引草案公聽會<a href="https://www.amla.europa.eu/press-release-amla-consults-draft-guidelines-reliance-outsourcing-and-third-party-arrangements_en">官方</a><span class="org">本期 <a href="#u5">U5</a></span></span></div>
-    <div><span class="d">2027-02-22～26</span><span class="w">AML/CFT</span><span>FATF 全會，灰名單再更新<a href="https://www.fatf-gafi.org/en/calendars/events.html">官方</a><span class="org">先前追蹤</span></span></div>
-    <div><span class="d">2027-02-25</span><span class="w">AML/CFT</span><span>AMLA 罰鍰基準金額指引草案徵詢截止<a href="https://www.amla.europa.eu/policy/public-consultations_en">官方</a><span class="org">本期 <a href="#u3">U3</a></span></span></div>
+    <div><span class="d">2027-02-22～26</span><span class="w">AML/CFT</span><span>FATF 全會<a href="https://www.fatf-gafi.org/en/calendars/events.html">官方</a><span class="org">先前追蹤</span></span></div>
+    <div><span class="d">2027-02-23／25</span><span class="w">AML/CFT</span><span>AMLA 罰鍰基準金額指引草案徵詢截止（草案寫 2/23，徵詢頁寫 2/25）<a href="https://www.amla.europa.eu/policy/public-consultations_en">官方</a><span class="org">本期 <a href="#u3">U3</a></span></span></div>
     <div><span class="d">2027-02-26</span><span class="w">AML/CFT</span><span>AMLA 依賴第三方與委外指引草案徵詢截止<a href="https://www.amla.europa.eu/policy/public-consultations_en">官方</a><span class="org">本期 <a href="#u5">U5</a></span></span></div>
     <div><span class="d">2027-10-30</span><span class="w">CRA</span><span>下一批標準化成果<a href="https://digital-strategy.ec.europa.eu/en/factpages/cyber-resilience-act-implementation">官方</a><span class="org">先前追蹤</span></span></div>
-    <div><span class="d">2027-12-11</span><span class="w">CRA</span><span>CRA 全面適用（CE 標示、Annex I 要求）<a href="https://digital-strategy.ec.europa.eu/en/factpages/cyber-resilience-act-implementation">官方</a><span class="org">先前追蹤</span></span></div>
+    <div><span class="d">2027-12-11</span><span class="w">CRA</span><span>CRA 全面適用<a href="https://digital-strategy.ec.europa.eu/en/factpages/cyber-resilience-act-implementation">官方</a><span class="org">先前追蹤</span></span></div>
     <div><span class="d">2027-12-31</span><span class="w">ISO 13485</span><span>EU MDR 第 III 類及 IIb 植入式器材過渡期結束<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0607">官方</a><span class="org">先前追蹤</span></span></div>
     <div><span class="d">2028-03-31</span><span class="w">ISO 9001</span><span>新發及初次驗證只能依 ISO 9001:2026<a href="https://global-aci.org/en/news/global-aci-publishes-transition-requirements-for-iso-90012026/">官方</a><span class="org">先前追蹤</span></span></div>
     <div><span class="d">2029-09-30</span><span class="w">ISO 9001</span><span>ISO 9001:2015 證書轉版期限<a href="https://global-aci.org/en/news/global-aci-publishes-transition-requirements-for-iso-90012026/">官方</a><span class="org">先前追蹤</span></span></div>
